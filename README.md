@@ -1,4 +1,4 @@
-### SuperMarketProject
+# SuperMarketProject
 This is a project for Programming II, the project is to implement a super market system.
 # Task division
 Check attached PDF for reference.
