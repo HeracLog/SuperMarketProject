@@ -1,15 +1,17 @@
 package org.example;
 
+import java.sql.Date;
+
 public class Product {
     private int ID;
     private String name;
     private String category;
     private double buyPrice;
     private double sellingPrice;
-    private String expiryDate;
+    private Date expiryDate;
     private int numInStock;
 
-    public Product(int ID, String name, String category, double buyPrice, double sellingPrice, String expiryDate, int numInStock) {
+    public Product(int ID, String name, String category, double buyPrice, double sellingPrice, Date expiryDate, int numInStock) {
         this.ID= ID;
         this.name = name;
         this.category = category;
@@ -39,7 +41,7 @@ public class Product {
         return sellingPrice;
     }
 
-    public String getExpiryDate() {
+    public Date getExpiryDate() {
         return expiryDate;
     }
 
@@ -67,7 +69,7 @@ public class Product {
         this.sellingPrice = sellingPrice;
     }
 
-    public void setExpiryDate(String expiryDate) {
+    public void setExpiryDate(Date expiryDate) {
         this.expiryDate = expiryDate;
     }
 
