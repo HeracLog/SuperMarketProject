@@ -76,16 +76,17 @@ public class RegularClient {
     private void check(){
        Date now = new Date();
        if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
-           this.moneySpent = 0;
+          this.moneySpent = 0;
           this.nextCheck= now;
           this.nextCheck.setMonth(now.getMonth()+1);
           }
        
         }
-    public void buy(Product[] x){
+    public void buy(Product[] p,Staff s){
         check();
+        s.sell(p);
         double currentReceipt = 0;
-        for(Product y:x){
+        for(Product y:p){
                 moneySpent+= (int) y.getBuyPrice();
                 currentReceipt+=y.getBuyPrice();
                 }

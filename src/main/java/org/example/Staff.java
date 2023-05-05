@@ -1,10 +1,17 @@
 package org.example;
+
+import java.util.Date;
+
 public class Staff {
     private int id;
     private String name;
     private double salary;
     private String phoneNumber;
     private String address;
+    private double invoices;
+    private Date initialDate;
+    private Date nextCheck;
+    
 
     public Staff(int id, String name, double salary, String phoneNumber, String address) {
         this.id = id;
@@ -12,6 +19,9 @@ public class Staff {
         this.salary = salary;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.initialDate = new Date();
+        this.nextCheck = new Date();
+        this.nextCheck.setMonth(this.initialDate.getMonth() + 1);
     }
 
     public int getId() {
@@ -23,7 +33,12 @@ public class Staff {
     }
 
     public double getSalary() {
-        return salary;
+        check();
+        if(invoices >= 100000){
+            return salary + 500;
+        }
+        else{
+        return salary;}
     }
 
     public String getPhoneNumber() {
@@ -53,4 +68,19 @@ public class Staff {
     public void setAddress(String address) {
         this.address = address;
     }
+     private void check(){
+       Date now = new Date();
+       if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
+           invoices = 0;
+          this.nextCheck= now;
+          this.nextCheck.setMonth(now.getMonth()+1);
+          }
+     }
+       
+    public void sell(Product[] p){
+        for(Product y:p){
+            invoices+=y.getBuyPrice();
+        }
+      }
+    
 }
