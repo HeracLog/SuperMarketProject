@@ -1,6 +1,6 @@
 package org.example;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Product {
     private int ID;
@@ -22,8 +22,8 @@ public class Product {
     }
 
     public int getID() {
-        return ID;
-    }
+        return ID;     
+        }
 
     public String getName() {
         return name;
