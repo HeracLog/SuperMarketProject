@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Product {
     private int ID;
@@ -11,6 +12,8 @@ public class Product {
     private Date expiryDate;
     private int numInStock;
 
+    public static ArrayList<Product> productList = new ArrayList<>();
+
     public Product(int ID, String name, String category, double buyPrice, double sellingPrice, Date expiryDate, int numInStock) {
         this.ID= ID;
         this.name = name;
@@ -19,6 +22,8 @@ public class Product {
         this.sellingPrice = sellingPrice;
         this.expiryDate = expiryDate;
         this.numInStock = numInStock;
+        // Add the new product instance to the productList ArrayList
+        productList.add(this);
     }
 
     public int getID() {
@@ -81,13 +86,22 @@ public class Product {
         numInStock += num;
     }
 
-    public void removeStock(int num) {
-        if (numInStock - num >= 0) {
-            numInStock -= num;
-        }
-    }
-
     public double calculateProfit() {
         return (sellingPrice - buyPrice) * numInStock;
+    }
+    public boolean isExpired() {
+        return new Date().after(expiryDate);
+    }
+    public void checkExpireDate(ArrayList<Product> productList) {
+
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).isExpired()) {
+                System.out.println(productList.get(i).getName() + " is expired.");
+                productList.remove(i);
+                i--;
+            } else {
+                System.out.println(productList.get(i).getName() + " is not expired.");
+            }
+        }
     }
 }

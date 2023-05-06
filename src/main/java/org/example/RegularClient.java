@@ -73,6 +73,9 @@ public class RegularClient {
     public void setAddress(String[] address) {
         this.address = address;
     }
+    public Date getInitialDate() {
+        return initialDate;
+    }
     private void check(){
        Date now = new Date();
        if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
@@ -83,10 +86,12 @@ public class RegularClient {
        
         }
     public void buy(Product[] p,Staff s){
+        isGoldenClients();
         check();
         s.sell(p);
         double currentReceipt = 0;
         for(Product y:p){
+                y.setNumInStock(y.getNumInStock() - 1);
                 moneySpent+= (int) y.getBuyPrice();
                 currentReceipt+=y.getBuyPrice();
                 }
@@ -95,4 +100,13 @@ public class RegularClient {
         }
             
         }
+    public void isGoldenClients() {
+        Date currentDate = new Date();
+        if (currentDate.getYear() - getInitialDate().getYear() >= 5){
+            createGoldenClient(null,null);
+        }
+    }
+    private void createGoldenClient(Date birthDay, Product favoriteProduct) {
+            Main.goldenClients.add(new GoldenClients(this.id,this.name, this.age,this.telephoneNum, this.address[0], this.address[1],this.address[2], birthDay,favoriteProduct));
+    }
 }
