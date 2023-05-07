@@ -107,6 +107,7 @@ public class RegularClient {
                 y.setNumInStock(y.getNumInStock() - 1);
                 moneySpent += (int) y.getBuyPrice();
                 currentReceipt += y.getBuyPrice();
+                y.setProductsSold(y.getProductsSold() + 1);
             }
             if (moneySpent >= 4000) {
                 currentReceipt -= currentReceipt * 0.05;

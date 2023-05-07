@@ -11,10 +11,11 @@ public class Product {
     private double sellingPrice;
     private Date expiryDate;
     private int numInStock;
+    private int productsSold;
 
     public static ArrayList<Product> productList = new ArrayList<>();
 
-    public Product(int ID, String name, String category, double buyPrice, double sellingPrice, Date expiryDate, int numInStock) {
+    public Product(int ID, String name, String category, double buyPrice, double sellingPrice, Date expiryDate, int numInStock, int Prod) {
         this.ID= ID;
         this.name = name;
         this.category = category;
@@ -24,6 +25,7 @@ public class Product {
         this.numInStock = numInStock;
         // Add the new product instance to the productList ArrayList
         productList.add(this);
+        this.productsSold = Prod;
     }
 
     public int getID() {
@@ -84,6 +86,14 @@ public class Product {
 
     public void addStock(int num) {
         numInStock += num;
+    }
+
+    public int getProductsSold() {
+        return productsSold;
+    }
+
+    public void setProductsSold(int productsSold) {
+        this.productsSold = productsSold;
     }
 
     public double calculateProfit() {

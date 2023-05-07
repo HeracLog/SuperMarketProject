@@ -11,6 +11,14 @@ public class GoldenClients extends RegularClient{
         this.favoriteProduct = favoriteProduct;
     }
 
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public Product getFavoriteProduct() {
+        return favoriteProduct;
+    }
+
     @Override
     public void buy(Product[] p, Staff s) {
         this.check();
@@ -25,6 +33,7 @@ public class GoldenClients extends RegularClient{
                 favourtieBought = true;
             }
             currentReceipt += y.getBuyPrice();
+            y.setProductsSold(y.getProductsSold() + 1);
         }
         if (getMoneySpent() >= 4000) {
             currentReceipt -= currentReceipt * 0.05;
