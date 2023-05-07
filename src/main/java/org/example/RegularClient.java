@@ -5,6 +5,9 @@
  */
 package org.example;
 
+import com.google.zxing.WriterException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -22,7 +25,7 @@ public class RegularClient {
     private boolean isGolden;
     private int goldenClientIndex;
 
-    public RegularClient(String id, String name, int age, String telephoneNum,String street ,String town,String homeNum) {
+    public RegularClient(String id, String name, int age, String telephoneNum,String street ,String town,String homeNum){
         this.address = new String[3];
         this.id = id;
         this.name = name;
@@ -36,6 +39,10 @@ public class RegularClient {
         this.moneySpent = 0;
         this.nextCheck.setMonth(this.initialDate.getMonth() + 1);
         this.isGolden = false;
+        if (!isGolden) {
+            GenreateQR.generateQRCode(toString(), name, id);
+            DataStore.store(this);
+        }
     }
 
     public String getId() {

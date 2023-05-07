@@ -1,5 +1,8 @@
 package org.example;
 
+import com.google.zxing.WriterException;
+
+import java.io.IOException;
 import java.util.Date;
 
 public class Staff {
@@ -22,6 +25,8 @@ public class Staff {
         this.initialDate = new Date();
         this.nextCheck = new Date();
         this.nextCheck.setMonth(this.initialDate.getMonth() + 1);
+        GenreateQR.generateQRCode(toString(),name,""+id);
+        DataStore.store(this);
     }
 
     public int getId() {
