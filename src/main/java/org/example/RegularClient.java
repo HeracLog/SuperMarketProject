@@ -118,7 +118,7 @@ public class RegularClient {
 
     public void buy(Product[] p, Staff s){
         if (!isGolden) {
-            isGoldenClients();
+            isGoldenClients(this);
             check();
             s.sell(p);
             double currentReceipt = 0;
@@ -136,18 +136,12 @@ public class RegularClient {
             Main.goldenClients.get(goldenClientIndex).buy(p,s);
         }
         }
-    public boolean isGoldenClients() {
+    public void isGoldenClients(RegularClient c) {
         Date currentDate = new Date();
         if (currentDate.getYear() - getInitialDate().getYear() >= 5){
-            createGoldenClient(null,null);
-
-            isGolden = true;
-            return true;
-        }
-        return false;
+            c = new GoldenClients(this.id,this.name, this.age,this.telephoneNum, this.address[0], this.address[1],this.address[2],null,null);
+}
+       
     }
-    private void createGoldenClient(Date birthDay, Product favoriteProduct) {
-            goldenClientIndex = Main.goldenClients.size();
-            Main.goldenClients.add(new GoldenClients(this.id,this.name, this.age,this.telephoneNum, this.address[0], this.address[1],this.address[2], birthDay,favoriteProduct));
-    }
+   
 }
