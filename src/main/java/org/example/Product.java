@@ -1,5 +1,8 @@
 package org.example;
 
+import com.google.zxing.WriterException;
+
+import java.io.IOException;
 import java.util.Date;
 import java.util.ArrayList;
 
@@ -8,22 +11,24 @@ public class Product {
     private String name;
     private String category;
     private double buyPrice;
-    private double sellingPrice;
     private Date expiryDate;
     private int numInStock;
+    private int productsSold;
 
     public static ArrayList<Product> productList = new ArrayList<>();
 
-    public Product(int ID, String name, String category, double buyPrice, double sellingPrice, Date expiryDate, int numInStock) {
+    public Product(int ID, String name, String category, double buyPrice, Date expiryDate, int numInStock, int Prod){
         this.ID= ID;
         this.name = name;
         this.category = category;
         this.buyPrice = buyPrice;
-        this.sellingPrice = sellingPrice;
         this.expiryDate = expiryDate;
         this.numInStock = numInStock;
         // Add the new product instance to the productList ArrayList
         productList.add(this);
+        this.productsSold = Prod;
+        GenreateQR.generateQRCode(toString(),name,""+ID);
+        DataStore.store(this);
     }
 
     public int getID() {
@@ -40,10 +45,6 @@ public class Product {
 
     public double getBuyPrice() {
         return buyPrice;
-    }
-
-    public double getSellingPrice() {
-        return sellingPrice;
     }
 
     public Date getExpiryDate() {
@@ -70,10 +71,6 @@ public class Product {
         this.buyPrice = buyPrice;
     }
 
-    public void setSellingPrice(double sellingPrice) {
-        this.sellingPrice = sellingPrice;
-    }
-
     public void setExpiryDate(Date expiryDate) {
         this.expiryDate = expiryDate;
     }
@@ -86,9 +83,14 @@ public class Product {
         numInStock += num;
     }
 
-    public double calculateProfit() {
-        return (sellingPrice - buyPrice) * numInStock;
+    public int getProductsSold() {
+        return productsSold;
     }
+
+    public void setProductsSold(int productsSold) {
+        this.productsSold = productsSold;
+    }
+
     public boolean isExpired() {
         return new Date().after(expiryDate);
     }
@@ -103,5 +105,17 @@ public class Product {
                 System.out.println(productList.get(i).getName() + " is not expired.");
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", buyPrice=" + buyPrice +
+                ", expiryDate=" + expiryDate +
+                ", numInStock=" + numInStock +
+                '}';
     }
 }
