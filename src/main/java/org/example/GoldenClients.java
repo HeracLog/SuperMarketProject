@@ -53,4 +53,12 @@ public class GoldenClients extends RegularClient{
         Date now = new Date();
         return now.getMonth() == birthDay.getMonth() && now.getDay() == birthDay.getDay();
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "GoldenClients{" +
+                "birthDay=" + birthDay +
+                ", favoriteProduct=" + favoriteProduct +
+                '}';
+    }
 }

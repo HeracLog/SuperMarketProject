@@ -114,4 +114,16 @@ public class Product {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", buyPrice=" + buyPrice +
+                ", expiryDate=" + expiryDate +
+                ", numInStock=" + numInStock +
+                '}';
+    }
 }

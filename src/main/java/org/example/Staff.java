@@ -82,5 +82,15 @@ public class Staff {
             invoices+=y.getBuyPrice();
         }
       }
-    
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

@@ -6,6 +6,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -95,6 +96,17 @@ public class RegularClient {
 
     public void setMoneySpent(int moneySpent) {
         this.moneySpent = moneySpent;
+    }
+
+    @Override
+    public String toString() {
+        return "RegularClient{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", telephoneNum='" + telephoneNum + '\'' +
+                ", address=" + Arrays.toString(address) +
+                '}';
     }
 
     public void buy(Product[] p, Staff s){
