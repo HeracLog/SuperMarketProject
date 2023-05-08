@@ -14,12 +14,12 @@ Check attached PDF for reference.
 ## JDK version
 The JDK version used is JDK **17.0.5**
 ### To-DO
-[] Invoices
-[] GUI
-[x] Staff Class
-[x] Client Class
-[x] Golden Client Class
-[x] Product Class
-[x] Discounts
-[x] Data storing
-[x] QR code
+- [ ] Invoices <br>
+- [ ] GUI <br>
+- [x] Staff Class <br>
+- [x] Client Class <br>
+- [x] Golden Client Class <br>
+- [x] Product Class <br>
+- [x] Discounts <br>
+- [x] Data storing <br>
+- [x] QR code <br>
