@@ -13,3 +13,13 @@ Check attached PDF for reference.
 |Purple|Youssef Salah|22010442|
 ## JDK version
 The JDK version used is JDK **17.0.5**
+### To-DO
+[] Invoices
+[] GUI
+[x] Staff Class
+[x] Client Class
+[x] Golden Client Class
+[x] Product Class
+[x] Discounts
+[x] Data storing
+[x] QR code
