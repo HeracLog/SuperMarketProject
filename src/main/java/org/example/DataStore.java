@@ -1,22 +1,35 @@
 package org.example;
 
-import java.io.File;
+import java.io.*;
+
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class DataStore {
 
     public static void store(Staff s)
     {
-        HSSFWorkbook dataStored = new HSSFWorkbook();
-        HSSFSheet sheet = dataStored.createSheet(s.getName() + s.getId());
+        File f = new File("Staff.xlsx");
+        HSSFWorkbook dataStored;
+        if (!f.exists()) {
+            dataStored = new HSSFWorkbook();
+        }
+        else{
+            try {
+                dataStored = new HSSFWorkbook(new FileInputStream("Staff.xlsx"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        HSSFSheet sheet;
+        if (dataStored.getSheet(s.getName() +s.getId())==null){
+        sheet = dataStored.createSheet(s.getName() + s.getId());
+        }
+        else {
+            sheet = dataStored.getSheet(s.getName()+s.getId());
+        }
         Row r = sheet.createRow(0);
         String[] arrNames = {"Name", "ID", "Salary","Phone Number","Address"};
         int i = 0;
@@ -39,8 +52,9 @@ public class DataStore {
         c = r.createCell(4);
         c.setCellValue(s.getAddress());
 
-        try (FileOutputStream outputStream = new FileOutputStream("Staff"+s.getName() +".xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("Staff.xlsx")) {
             dataStored.write(outputStream);
+            outputStream.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -49,8 +63,25 @@ public class DataStore {
     }
     public static void store(RegularClient rc)
     {
-        HSSFWorkbook dataStored = new HSSFWorkbook();
-        HSSFSheet sheet = dataStored.createSheet(rc.getName() + rc.getId());
+        File f = new File("Client.xlsx");
+        HSSFWorkbook dataStored;
+        if (!f.exists()) {
+            dataStored = new HSSFWorkbook();
+        }
+        else{
+            try {
+                dataStored = new HSSFWorkbook(new FileInputStream("Client.xlsx"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        HSSFSheet sheet;
+        if (dataStored.getSheet(rc.getName() +rc.getId())==null){
+            sheet = dataStored.createSheet(rc.getName() + rc.getId());
+        }
+        else {
+            sheet = dataStored.getSheet(rc.getName()+rc.getId());
+        }
         Row r = sheet.createRow(0);
         String[] arrNames = {"Name", "ID", "Age","Phone Number","Street","Town","Home Number"};
         int i = 0;
@@ -77,8 +108,9 @@ public class DataStore {
         c= r.createCell(6);
         c.setCellValue(rc.getAddress()[2]);
 
-        try (FileOutputStream outputStream = new FileOutputStream("Client"+rc.getName() +".xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("Client.xlsx")) {
             dataStored.write(outputStream);
+            outputStream.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -87,8 +119,25 @@ public class DataStore {
     }
     public static void store(GoldenClients gc)
     {
-        HSSFWorkbook dataStored = new HSSFWorkbook();
-        HSSFSheet sheet = dataStored.createSheet(gc.getName() + gc.getId());
+        File f = new File("GoldenClient.xlsx");
+        HSSFWorkbook dataStored;
+        if (!f.exists()) {
+            dataStored = new HSSFWorkbook();
+        }
+        else{
+            try {
+                dataStored = new HSSFWorkbook(new FileInputStream("GoldenClient.xlsx"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        HSSFSheet sheet;
+        if (dataStored.getSheet(gc.getName() +gc.getId())==null){
+            sheet = dataStored.createSheet(gc.getName() + gc.getId());
+        }
+        else {
+            sheet = dataStored.getSheet(gc.getName()+gc.getId());
+        }
         Row r = sheet.createRow(0);
         String[] arrNames = {"Name", "ID", "Age","Phone Number","Street","Town","Home Number","Birthday","Favourite Product"};
         int i = 0;
@@ -119,7 +168,7 @@ public class DataStore {
         c = r.createCell(8);
         c.setCellValue(gc.getFavoriteProduct().getName());
 
-        try (FileOutputStream outputStream = new FileOutputStream("GoldenClient"+gc.getName() +".xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("GoldenClient.xlsx")) {
             dataStored.write(outputStream);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -129,8 +178,25 @@ public class DataStore {
     }
     public static void store(Product p)
     {
-        HSSFWorkbook dataStored = new HSSFWorkbook();
-        HSSFSheet sheet = dataStored.createSheet(p.getName() + p.getID());
+        File f = new File("Product.xlsx");
+        HSSFWorkbook dataStored;
+        if (!f.exists()) {
+            dataStored = new HSSFWorkbook();
+        }
+        else{
+            try {
+                dataStored = new HSSFWorkbook(new FileInputStream("Product.xlsx"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        HSSFSheet sheet;
+        if (dataStored.getSheet(p.getName() +p.getID())==null){
+            sheet = dataStored.createSheet(p.getName() + p.getID());
+        }
+        else {
+            sheet = dataStored.getSheet(p.getName()+p.getID());
+        }
         Row r = sheet.createRow(0);
         String[] arrNames = {"Name", "ID", "Price","Expiry Date","Category","In stock"};
         int i = 0;
@@ -155,7 +221,7 @@ public class DataStore {
         c = r.createCell(5);
         c.setCellValue(p.getNumInStock());
 
-        try (FileOutputStream outputStream = new FileOutputStream("Product"+p.getName() +".xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("Product.xlsx")) {
             dataStored.write(outputStream);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

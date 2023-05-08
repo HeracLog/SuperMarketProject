@@ -20,6 +20,8 @@ public class Main {
 
 //            GenreateQR.generateQRCode("Good morning");
 //            Product p = new Product(12,"Apple","Fruit",122,125,null,45,12);
-//        DataStore.store(new Staff(12,"Ali",12.3,"12433",""));
+//       DataStore.store(new Staff(14,"Medhat",12.3,"12433","Street 5"));
+//        DataStore.store(new Product(16,"Bananas","Fruit",15,new Date(),17,2));
+
     }
 }
