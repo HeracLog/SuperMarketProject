@@ -11,8 +11,7 @@ Check attached PDF for reference.
 |Blue|Youssef Adel|2206173|
 |Pink|Farida Salem|2206160|
 |Purple|Youssef Salah|22010442|
-## JDK version
-The JDK version used is JDK **17.0.5**
+
 ### To-DO
 - [ ] Invoices <br>
 - [ ] GUI <br>
@@ -23,3 +22,6 @@ The JDK version used is JDK **17.0.5**
 - [x] Discounts <br>
 - [x] Data storing <br>
 - [x] QR code <br>
+
+## JDK version
+The JDK version used is JDK **17.0.5**
