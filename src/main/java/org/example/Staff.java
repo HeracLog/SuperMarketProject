@@ -14,7 +14,15 @@ public class Staff {
     private double invoices;
     private Date initialDate;
     private Date nextCheck;
-    
+    private boolean wasStored;
+
+    public boolean isWasStored() {
+        return wasStored;
+    }
+
+    public void setWasStored(boolean wasStored) {
+        this.wasStored = wasStored;
+    }
 
     public Staff(int id, String name, double salary, String phoneNumber, String address) {
         this.id = id;
