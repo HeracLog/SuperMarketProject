@@ -20,8 +20,17 @@ public class RegularClient {
     private int moneySpent;
     private boolean isGolden;
     private int goldenClientIndex;
+    private boolean stored;
 
-    public RegularClient(String id, String name, int age, String telephoneNum,String street ,String town,String homeNum){
+    public boolean isStored() {
+        return stored;
+    }
+
+    public void setStored(boolean stored) {
+        this.stored = stored;
+    }
+
+    public RegularClient(String id, String name, int age, String telephoneNum, String street , String town, String homeNum){
         this.address = new String[3];
         this.id = id;
         this.name = name;
@@ -129,7 +138,7 @@ public class RegularClient {
             }
         }
         else{
-            Main.goldenClients.get(goldenClientIndex).buy(p,s);
+            HelloApplication.goldenClients.get(goldenClientIndex).buy(p,s);
         }
         }
     public void isGoldenClients(RegularClient c) {

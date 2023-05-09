@@ -11,6 +11,15 @@ public class Product {
     private Date expiryDate;
     private int numInStock;
     private int productsSold;
+    private boolean stored;
+
+    public boolean isStored() {
+        return stored;
+    }
+
+    public void setStored(boolean stored) {
+        this.stored = stored;
+    }
 
     public static ArrayList<Product> productList = new ArrayList<>();
 

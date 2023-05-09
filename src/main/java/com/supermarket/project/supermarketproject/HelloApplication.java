@@ -6,8 +6,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class HelloApplication extends Application {
+    static ArrayList<GoldenClients> goldenClients;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -30,10 +33,10 @@ public class HelloApplication extends Application {
 //            GenreateQR.generateQRCode("Good morning");
 //            Product p = new Product(12,"Apple","Fruit",122,125,null,45,12);
 //        DataStore.store(new Staff(14,"Cristiano",12.3,"12433","Street 5"));
-//        DataStore.store(new Staff(14,"Barhoom",12.3,"12433","Street 5"));
+//        DataStore.store(new Staff(14,"Barahoom",12.3,"12433","Street 5"));
 //
 //
-//        DataStore.store(new Product(16,"Bananas","Fruit",15,new Date(),17,2));
+        DataStore.store(new Product(16,"Banana","Fruit",15,new Date(),17,2));
         launch();
     }
 }
