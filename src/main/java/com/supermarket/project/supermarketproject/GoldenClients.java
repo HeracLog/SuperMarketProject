@@ -1,8 +1,5 @@
-package org.example;
+package com.supermarket.project.supermarketproject;
 
-import com.google.zxing.WriterException;
-
-import java.io.IOException;
 import java.util.Date;
 public class GoldenClients extends RegularClient{
     private Date birthDay;

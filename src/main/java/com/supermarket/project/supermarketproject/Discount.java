@@ -1,4 +1,4 @@
-package org.example;
+package com.supermarket.project.supermarketproject;
 
 import java.util.ArrayList;
 import java.util.Timer;
