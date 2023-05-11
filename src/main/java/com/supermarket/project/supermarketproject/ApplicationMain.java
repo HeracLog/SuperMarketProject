@@ -7,13 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class HelloApplication extends Application {
+public class ApplicationMain extends Application {
     static ArrayList<GoldenClients> goldenClients;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ApplicationMain.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -31,12 +30,12 @@ public class HelloApplication extends Application {
 //        WeeklyCheck.mostSold(p);
 
 //            GenreateQR.generateQRCode("Good morning");
-//            Product p = new Product(12,"Apple","Fruit",122,125,null,45,12);
+//            Product p = new Product(12,"Apple","Fruit",122,new Date(),23,412);
 //        DataStore.store(new Staff(14,"Cristiano",12.3,"12433","Street 5"));
 //        DataStore.store(new Staff(14,"Barahoom",12.3,"12433","Street 5"));
 //
 //
-        DataStore.store(new Product(16,"Banana","Fruit",15,new Date(),17,2));
+//        DataStore.store(new Product(13,"Biscuits","Sweets",1.5,new Date(),7,32));
         launch();
     }
 }

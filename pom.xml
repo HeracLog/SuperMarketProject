@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.supermarket.project.supermarketproject/com.supermarket.project.supermarketproject.HelloApplication
+                                com.supermarket.project.supermarketproject/com.supermarket.project.supermarketproject.ApplicationMain
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
