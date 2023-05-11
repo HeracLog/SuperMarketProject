@@ -101,7 +101,6 @@ public class DataStore {
         if (!rc.isStored()) {
             Row r = sheet.createRow(sheet.getLastRowNum() + 1);
             Cell c;
-            r = sheet.createRow(1);
             c = r.createCell(0);
             c.setCellValue(rc.getName());
             c = r.createCell(1);
@@ -161,7 +160,6 @@ public class DataStore {
         if (!gc.isStored()) {
             Row r = sheet.createRow(sheet.getLastRowNum()+1);
             Cell c;
-            r = sheet.createRow(1);
             c = r.createCell(0);
             c.setCellValue(gc.getName());
             c = r.createCell(1);
@@ -225,7 +223,6 @@ public class DataStore {
         if (!p.isStored()) {
             Row r = sheet.createRow(sheet.getLastRowNum()+1);
             Cell c;
-            r = sheet.createRow(1);
             c = r.createCell(0);
             c.setCellValue(p.getName());
             c = r.createCell(1);

@@ -138,7 +138,7 @@ public class RegularClient {
             }
         }
         else{
-            HelloApplication.goldenClients.get(goldenClientIndex).buy(p,s);
+            ApplicationMain.goldenClients.get(goldenClientIndex).buy(p,s);
         }
         }
     public void isGoldenClients(RegularClient c) {
