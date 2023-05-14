@@ -15,6 +15,7 @@ Check attached PDF for reference.
 ### To-DO
 - [ ] Invoices <br>
 - [ ] GUI <br>
+- [ ] UML
 - [x] Staff Class <br>
 - [x] Client Class <br>
 - [x] Golden Client Class <br>
