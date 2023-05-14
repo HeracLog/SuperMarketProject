@@ -2,11 +2,9 @@ package com.supermarket.project.supermarketproject;
 
 import java.util.Date;
 
-public class Staff {
-    private int id;
-    private String name;
+public class Staff extends Person {
+    
     private double salary;
-    private String phoneNumber;
     private String address;
     private double invoices;
     private Date initialDate;
@@ -21,11 +19,11 @@ public class Staff {
         this.wasStored = wasStored;
     }
 
-    public Staff(int id, String name, double salary, String phoneNumber, String address) {
+    public Staff(String id, String name, double salary, String phoneNum, String address) {
         this.id = id;
         this.name = name;
         this.salary = salary;
-        this.phoneNumber = phoneNumber;
+        this.phoneNum = phoneNum;
         this.address = address;
         this.initialDate = new Date();
         this.nextCheck = new Date();
@@ -34,10 +32,12 @@ public class Staff {
         DataStore.store(this);
     }
 
-    public int getId() {
+    @Override
+    public String getId() {
         return id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -51,18 +51,21 @@ public class Staff {
         return salary;}
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    @Override
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setId(int id) {
+    @Override
+    public void setId(String id) {
         this.id = id;
     }  
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -71,14 +74,16 @@ public class Staff {
         this.salary = salary;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    @Override
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
-     private void check(){
+    @Override
+    public void check(){
        Date now = new Date();
        if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
            invoices = 0;
@@ -99,7 +104,7 @@ public class Staff {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", phoneNumber='" + this.phoneNum+ '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }

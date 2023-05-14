@@ -12,6 +12,7 @@ public class Product {
     private int numInStock;
     private int productsSold;
     private boolean stored;
+    private int quantity;
 
     public boolean isStored() {
         return stored;
@@ -19,6 +20,14 @@ public class Product {
 
     public void setStored(boolean stored) {
         this.stored = stored;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public static ArrayList<Product> productList = new ArrayList<>();
