@@ -156,7 +156,9 @@ public class RegularClient extends Person{
                 x.append("\n");
             }
             x.append( "staff:"+s.getName() + "  ");
-            x.append(  s.getId() + "\n");
+            x.append(  s.getId());
+            x.append(s.getPrivatecard().getPOS().getId() + "\n");
+
             String f= "totalprice";
                 System.out.println("totalprice"+currentReceipt);
                 x.append("totalprice "+currentReceipt);

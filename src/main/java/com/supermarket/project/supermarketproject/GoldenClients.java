@@ -31,14 +31,17 @@ public class GoldenClients extends RegularClient{
         boolean favourtieBought = false;
         for (Product y : p) {
               y.getName();
-               gc.append(y.getName());
+               gc.append(y.getName()+"     ");
                y.getBuyPrice();
-               gc.append(y.getBuyPrice());
+               gc.append(y.getBuyPrice()+"      ");
                y.getQuantity();
-               gc.append(y.getQuantity());
-               gc.append(y.getQuantity()*y.getBuyPrice());
-               gc.append( "staff:"+s.getName());
-                gc.append(  s.getId());
+               gc.append(y.getQuantity()+"      ");
+               gc.append(y.getQuantity()*y.getBuyPrice()+"       ");
+               gc.append( "staff:"+s.getName()+"      ");
+                gc.append(  s.getId()+"   ");
+                 gc.append(s.getPrivatecard().getPOS().getId() + "\n");
+
+              
             y.setNumInStock(y.getNumInStock() - 1);
             setMoneySpent(getMoneySpent()+(int) y.getBuyPrice());
             if (y.getName() == favoriteProduct.getName())
@@ -79,7 +82,7 @@ public class GoldenClients extends RegularClient{
             System.out.println("priceafterdiscount"+currentReceipt);
               gc.append(("priceafterdiscount"+currentReceipt));
               gc.append("thank you for shopping with us");
-              invoice.x(gc.toString(), name, id);
+              invoice.x(gc.toString(), name, Id);
             
     }
     private boolean isBday()

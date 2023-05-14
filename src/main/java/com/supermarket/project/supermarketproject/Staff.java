@@ -10,6 +10,8 @@ public class Staff extends Person {
     private Date initialDate;
     private Date nextCheck;
     private boolean wasStored;
+    private int cardid;
+    private privatecard privatecard;
 
     public boolean isWasStored() {
         return wasStored;
@@ -19,7 +21,8 @@ public class Staff extends Person {
         this.wasStored = wasStored;
     }
 
-    public Staff(String id, String name, double salary, String phoneNum, String address) {
+    public Staff(String id, String name, double salary, String phoneNum, String address,  int cardid , String username) {
+        this.privatecard=new privatecard();
         this.id = id;
         this.name = name;
         this.salary = salary;
@@ -74,6 +77,10 @@ public class Staff extends Person {
         this.salary = salary;
     }
 
+    public privatecard getPrivatecard() {
+        return privatecard;
+    }
+
     @Override
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
@@ -95,6 +102,7 @@ public class Staff extends Person {
     public void sell(Product[] p){
         for(Product y:p){
             invoices+=y.getBuyPrice();
+            
         }
       }
 
@@ -108,4 +116,52 @@ public class Staff extends Person {
                 ", address='" + address + '\'' +
                 '}';
     }
+     static class pointofsale{
+         String id;
+         public pointofsale(String id){
+             this.id=id;
+         }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+    }
+    static class privatecard{
+        int cardid;
+          static pointofsale pos=new pointofsale("333");
+
+        public pointofsale getPOS() {
+            return pos;
+        }
+        String username;
+
+        public privatecard(int cardid, String username) {
+            this.cardid = cardid;
+            this.username = username;
+        }
+
+        public privatecard() {
+        }
+
+        public int getCardid() {
+            return cardid;
+        }
+
+        public void setCardid(int cardid) {
+            this.cardid = cardid;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+    }
 }
+
