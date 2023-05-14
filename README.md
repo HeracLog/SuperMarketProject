@@ -13,9 +13,9 @@ Check attached PDF for reference.
 |Purple|Youssef Salah|22010442|
 
 ### To-DO
-- [ ] Invoices <br>
+- [x] Invoices <br>
 - [ ] GUI <br>
-- [ ] UML
+- [x] UML
 - [x] Staff Class <br>
 - [x] Client Class <br>
 - [x] Golden Client Class <br>
