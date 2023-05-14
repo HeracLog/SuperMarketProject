@@ -32,7 +32,7 @@ public class Product {
 
     public static ArrayList<Product> productList = new ArrayList<>();
 
-    public Product(int ID, String name, String category, double buyPrice, Date expiryDate, int numInStock, int Prod){
+    public Product(int ID, String name, String category, double buyPrice, Date expiryDate, int numInStock, int Prod, int quantity){
         this.ID= ID;
         this.name = name;
         this.category = category;
@@ -41,9 +41,11 @@ public class Product {
         this.numInStock = numInStock;
         // Add the new product instance to the productList ArrayList
         productList.add(this);
+        this.quantity = quantity;
         this.productsSold = Prod;
         GenreateQR.generateQRCode(toString(),name,""+ID);
         DataStore.store(this);
+
     }
 
     public int getID() {

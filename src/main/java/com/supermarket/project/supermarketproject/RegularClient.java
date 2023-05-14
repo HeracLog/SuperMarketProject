@@ -130,8 +130,11 @@ public class RegularClient extends Person{
     public void buy(Product[] p, Staff s){
          StringBuilder x =new StringBuilder();
          Date z= new Date();
-         x.append(z);
-         
+         x.append(z + "\n");
+        x.append("Name" + "     ");
+        x.append("Buy price"+ "  ");
+        x.append("Quantity" + "  ");
+        x.append("Total price" + "  \n");
          
         if (!isGolden) {
             isGoldenClients(this);
@@ -139,19 +142,11 @@ public class RegularClient extends Person{
             s.sell(p);
             double currentReceipt = 0;
             for (Product y : p) {
-                y.getName();
-               x.append(y.getName());
-               y.getBuyPrice();
-               x.append(y.getBuyPrice());
-               y.getQuantity();
-               x.append(y.getQuantity());
-               x.append(y.getQuantity()*y.getBuyPrice());
-               y.getID();
-               s.getName();
-               s.getId();
-              
-               x.append( "staff:"+s.getName());
-                x.append(  s.getId());
+               x.append(y.getName() + "     ");
+               x.append(y.getBuyPrice()+ "       ");
+               x.append(y.getQuantity() + "      ");
+               x.append(y.getQuantity()*y.getBuyPrice() + "  \n");
+
                
                
                 y.setNumInStock(y.getNumInStock() - 1);
@@ -160,19 +155,22 @@ public class RegularClient extends Person{
                 y.setProductsSold(y.getProductsSold() + 1);
                 x.append("\n");
             }
+            x.append( "staff:"+s.getName() + "  ");
+            x.append(  s.getId() + "\n");
             String f= "totalprice";
                 System.out.println("totalprice"+currentReceipt);
-                x.append("totalprice"+currentReceipt);
+                x.append("totalprice "+currentReceipt);
             if (moneySpent >= 4000) {
                 currentReceipt -= currentReceipt * 0.05;
                 String o= "priceafterdiscount";
                 System.out.println("priceafterdiscount"+currentReceipt);
                 x.append("priceafterdiscount"+currentReceipt);
                 x.append("thank you for shopping with us");
-                invoice.x(x.toString(), name, Id);
-                
+
                 
             }
+            invoice.x(x.toString(), name, id);
+
         }
         else{
             ApplicationMain.goldenClients.get(goldenClientIndex).buy(p,s);
