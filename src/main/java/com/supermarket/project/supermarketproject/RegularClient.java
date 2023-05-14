@@ -9,11 +9,9 @@ import java.util.Arrays;
 import java.util.Date;
 
 
-public class RegularClient {
-    private String id;
-    private String name;
+public class RegularClient extends Person{
+    
     private int age;
-    private String telephoneNum;
     private String[] address;
     private Date initialDate;
     private Date nextCheck;
@@ -30,12 +28,13 @@ public class RegularClient {
         this.stored = stored;
     }
 
-    public RegularClient(String id, String name, int age, String telephoneNum, String street , String town, String homeNum){
+    public RegularClient(String id, String name, int age, String phoneNum, String street , String town, String homeNum){
         this.address = new String[3];
+        
         this.id = id;
         this.name = name;
         this.age = age;
-        this.telephoneNum = telephoneNum;
+        this.phoneNum = phoneNum;
         this.address[0] = street;
         this.address[1] = town;
         this.address[2] = homeNum;
@@ -50,18 +49,22 @@ public class RegularClient {
         }
     }
 
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -74,12 +77,14 @@ public class RegularClient {
         this.age = age;
     }
 
-    public String getTelephoneNum() {
-        return telephoneNum;
+    @Override
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setTelephoneNum(String telephoneNum) {
-        this.telephoneNum = telephoneNum;
+    @Override
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
     public String[] getAddress() {
@@ -92,6 +97,7 @@ public class RegularClient {
     public Date getInitialDate() {
         return initialDate;
     }
+    @Override
     public void check(){
        Date now = new Date();
        if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
@@ -116,26 +122,57 @@ public class RegularClient {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", telephoneNum='" + telephoneNum + '\'' +
+                ", telephoneNum='" + phoneNum + '\'' +
                 ", address=" + Arrays.toString(address) +
                 '}';
     }
 
     public void buy(Product[] p, Staff s){
+         StringBuilder x =new StringBuilder();
+         Date z= new Date();
+         x.append(z + "\n");
+        x.append("Name" + "     ");
+        x.append("Buy price"+ "  ");
+        x.append("Quantity" + "  ");
+        x.append("Total price" + "  \n");
+         
         if (!isGolden) {
             isGoldenClients(this);
             check();
             s.sell(p);
             double currentReceipt = 0;
             for (Product y : p) {
+               x.append(y.getName() + "     ");
+               x.append(y.getBuyPrice()+ "       ");
+               x.append(y.getQuantity() + "      ");
+               x.append(y.getQuantity()*y.getBuyPrice() + "  \n");
+
+               
+               
                 y.setNumInStock(y.getNumInStock() - 1);
                 moneySpent += (int) y.getBuyPrice();
                 currentReceipt += y.getBuyPrice();
                 y.setProductsSold(y.getProductsSold() + 1);
+                x.append("\n");
             }
+            x.append( "staff:"+s.getName() + "  ");
+            x.append(  s.getId());
+            x.append(s.getPrivatecard().getPOS().getId() + "\n");
+
+            String f= "totalprice";
+                System.out.println("totalprice"+currentReceipt);
+                x.append("totalprice "+currentReceipt);
             if (moneySpent >= 4000) {
                 currentReceipt -= currentReceipt * 0.05;
+                String o= "priceafterdiscount";
+                System.out.println("priceafterdiscount"+currentReceipt);
+                x.append("priceafterdiscount"+currentReceipt);
+                x.append("thank you for shopping with us");
+
+                
             }
+            invoice.x(x.toString(), name, id);
+
         }
         else{
             ApplicationMain.goldenClients.get(goldenClientIndex).buy(p,s);
@@ -144,7 +181,7 @@ public class RegularClient {
     public void isGoldenClients(RegularClient c) {
         Date currentDate = new Date();
         if (currentDate.getYear() - getInitialDate().getYear() >= 5){
-            c = new GoldenClients(this.id,this.name, this.age,this.telephoneNum, this.address[0], this.address[1],this.address[2],null,null);
+            c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],null,null);
 }
        
     }

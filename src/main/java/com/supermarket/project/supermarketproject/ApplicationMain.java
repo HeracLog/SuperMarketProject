@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ApplicationMain extends Application {
     static ArrayList<GoldenClients> goldenClients;
@@ -36,6 +37,12 @@ public class ApplicationMain extends Application {
 //
 //
 //        DataStore.store(new Product(13,"Biscuits","Sweets",1.5,new Date(),7,32));
-        launch();
+
+        RegularClient ali = new RegularClient("!31","Ali",23,"322323222","5 street","town","Home");
+        Staff ahmed = new Staff("43434","Ahmed",12121,"03433434","Adress");
+
+        ali.buy(new Product[]{new Product(123, "Apples", "Fruit", 122, new Date(), 23, 122,2), new Product(123, "Bananas", "Fruit", 122, new Date(), 23, 122,7)},ahmed);
+
+       launch();
     }
 }

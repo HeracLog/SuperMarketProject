@@ -12,6 +12,7 @@ public class Product {
     private int numInStock;
     private int productsSold;
     private boolean stored;
+    private int quantity;
 
     public boolean isStored() {
         return stored;
@@ -21,9 +22,17 @@ public class Product {
         this.stored = stored;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public static ArrayList<Product> productList = new ArrayList<>();
 
-    public Product(int ID, String name, String category, double buyPrice, Date expiryDate, int numInStock, int Prod){
+    public Product(int ID, String name, String category, double buyPrice, Date expiryDate, int numInStock, int Prod, int quantity){
         this.ID= ID;
         this.name = name;
         this.category = category;
@@ -32,9 +41,11 @@ public class Product {
         this.numInStock = numInStock;
         // Add the new product instance to the productList ArrayList
         productList.add(this);
+        this.quantity = quantity;
         this.productsSold = Prod;
         GenreateQR.generateQRCode(toString(),name,""+ID);
         DataStore.store(this);
+
     }
 
     public int getID() {

@@ -51,7 +51,7 @@ public class DataStore {
             c = r.createCell(2);
             c.setCellValue(s.getSalary());
             c = r.createCell(3);
-            c.setCellValue(s.getPhoneNumber());
+            c.setCellValue(s.getPhoneNum());
             c = r.createCell(4);
             c.setCellValue(s.getAddress());
             s.setWasStored(true);
@@ -108,7 +108,7 @@ public class DataStore {
             c = r.createCell(2);
             c.setCellValue(rc.getAge());
             c = r.createCell(3);
-            c.setCellValue(rc.getTelephoneNum());
+            c.setCellValue(rc.getPhoneNum());
             c = r.createCell(4);
             c.setCellValue(rc.getAddress()[0]);
             c = r.createCell(5);
@@ -167,7 +167,7 @@ public class DataStore {
             c = r.createCell(2);
             c.setCellValue(gc.getAge());
             c = r.createCell(3);
-            c.setCellValue(gc.getTelephoneNum());
+            c.setCellValue(gc.getPhoneNum());
             c = r.createCell(4);
             c.setCellValue(gc.getAddress()[0]);
             c = r.createCell(5);
