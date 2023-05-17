@@ -29,7 +29,7 @@ public class signUpController {
     }
     public void signUp(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
-        RegularClient regularClient = new RegularClient(id.getText(),username.getText(),Integer.parseInt(age.getText()),phoneNumber.getText(),street.getText(),town.getText(),homeNumber.getText());
+        RegularClient regularClient = new RegularClient(id.getText(),username.getText(),Integer.parseInt(age.getText()),phoneNumber.getText(),street.getText(),town.getText(),homeNumber.getText(),PassHash.hash(password.getText()));
         root = fxmlLoader.load();
         stage = (Stage) signUpBtn2.getScene().getWindow();
         stage.setScene(new Scene(root));

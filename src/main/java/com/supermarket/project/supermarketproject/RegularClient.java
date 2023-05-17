@@ -19,6 +19,7 @@ public class RegularClient extends Person{
     private boolean isGolden;
     private int goldenClientIndex;
     private boolean stored;
+    private String passwordHash;
 
     public boolean isStored() {
         return stored;
@@ -28,7 +29,11 @@ public class RegularClient extends Person{
         this.stored = stored;
     }
 
-    public RegularClient(String id, String name, int age, String phoneNum, String street , String town, String homeNum){
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public RegularClient(String id, String name, int age, String phoneNum, String street , String town, String homeNum, String passwordHash){
         this.address = new String[3];
         
         this.id = id;
@@ -43,6 +48,7 @@ public class RegularClient extends Person{
         this.moneySpent = 0;
         this.nextCheck.setMonth(this.initialDate.getMonth() + 1);
         this.isGolden = false;
+        this.passwordHash = passwordHash;
         if (!isGolden) {
             GenreateQR.generateQRCode(toString(), name, id);
             DataStore.store(this);
@@ -181,7 +187,7 @@ public class RegularClient extends Person{
     public void isGoldenClients(RegularClient c) {
         Date currentDate = new Date();
         if (currentDate.getYear() - getInitialDate().getYear() >= 5){
-            c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],null,null);
+            c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],null,null,passwordHash);
 }
        
     }

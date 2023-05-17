@@ -85,7 +85,7 @@ public class DataStore {
         if (dataStored.getSheet("Clients")==null){
             sheet = dataStored.createSheet("Clients");
             Row row = sheet.createRow(0);
-            String[] arrNames = {"Name", "ID", "Age","Phone Number","Street","Town","Home Number"};
+            String[] arrNames = {"Name", "ID", "Age","Phone Number","Street","Town","Home Number","Password"};
             int i = 0;
             Cell cell;
             for (String title: arrNames)
@@ -115,6 +115,8 @@ public class DataStore {
             c.setCellValue(rc.getAddress()[1]);
             c = r.createCell(6);
             c.setCellValue(rc.getAddress()[2]);
+            c = r.createCell(7);
+            c.setCellValue(rc.getPasswordHash());
             rc.setStored(true);
         }
         try (FileOutputStream outputStream = new FileOutputStream("Client.xls")) {
@@ -144,7 +146,7 @@ public class DataStore {
         if (dataStored.getSheet("GoldenClient")==null){
             sheet = dataStored.createSheet("GoldenClient");
             Row r = sheet.createRow(0);
-            String[] arrNames = {"Name", "ID", "Age","Phone Number","Street","Town","Home Number","Birthday","Favourite Product"};
+            String[] arrNames = {"Name", "ID", "Age","Phone Number","Street","Town","Home Number","Birthday","Favourite Product","Password"};
             int i = 0;
             Cell c;
             for (String title: arrNames)

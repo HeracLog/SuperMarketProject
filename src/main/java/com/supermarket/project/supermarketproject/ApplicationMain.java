@@ -16,8 +16,7 @@ public class ApplicationMain extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(ApplicationMain.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         stage.setTitle("supermarketName");
-        Image image = new Image("D:\\java\\SuperMarketProject\\src\\main\\resources\\com\\supermarket\\project\\supermarketproject\\OIP.jpeg ");
-        stage.getIcons().add(image);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("OIP.jpeg")));
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
