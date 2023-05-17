@@ -13,38 +13,39 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="127.0" layoutY="32.0" />
-      <Label layoutX="31.0" layoutY="119.0" text="Category">
+      <TextField fx:id="name" layoutX="110.0" layoutY="32.0" />
+      <Label layoutX="23.0" layoutY="119.0" text="Category">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="category" layoutX="127.0" layoutY="122.0" />
+      <TextField fx:id="category" layoutX="122.0" layoutY="122.0" />
       <Label layoutX="31.0" layoutY="76.0" text="Stock">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="stock" layoutX="127.0" layoutY="79.0" />
+      <TextField fx:id="stock" layoutX="111.0" layoutY="79.0" />
       <Label layoutX="31.0" layoutY="167.0" text="Price">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="Price" layoutX="127.0" layoutY="170.0" />
+      <TextField fx:id="Price" layoutX="111.0" layoutY="170.0" />
       <Label layoutX="3.0" layoutY="211.0" text="Expiry Date">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="expiryDate" layoutX="127.0" layoutY="214.0" promptText="YYY-MM-DD" />
+      <TextField fx:id="expiryDate" layoutX="126.0" layoutY="214.0" promptText="DD-MM-YYYY" />
       <Label layoutX="31.0" layoutY="261.0" text="ID">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="ID" layoutX="127.0" layoutY="264.0" prefHeight="26.0" prefWidth="62.0" />
-      <Button fx:id="generate" layoutX="197.0" layoutY="264.0" mnemonicParsing="false" onAction="#IdGenerator" prefHeight="26.0" prefWidth="82.0" text="Generate" />
+      <TextField fx:id="ID" layoutX="106.0" layoutY="264.0" prefHeight="26.0" prefWidth="62.0" />
+      <Button fx:id="generate" layoutX="181.0" layoutY="264.0" mnemonicParsing="false" onAction="#IdGenerator" prefHeight="26.0" prefWidth="82.0" text="Generate" />
       <Button fx:id="Store" layoutX="155.0" layoutY="342.0" mnemonicParsing="false" onAction="#Store" text="Store" />
+      <Button fx:id="Cancel" layoutX="57.0" layoutY="342.0" mnemonicParsing="false" onAction="#OnCancel" text="Cancel" />
    </children>
 </Pane>

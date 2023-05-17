@@ -6,7 +6,9 @@
 package com.supermarket.project.supermarketproject;
 
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     protected String id ;
     protected String name ;
     protected String phoneNum;

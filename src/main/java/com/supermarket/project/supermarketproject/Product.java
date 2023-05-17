@@ -1,11 +1,12 @@
 package com.supermarket.project.supermarketproject;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Product {
+public class Product implements Serializable {
     private int ID;
     private String name;
     private String category;

@@ -67,6 +67,7 @@ public class LoginController {
             if (!found || !r.getCell(7).getStringCellValue().contains(PassHash.hash(passwordField.getText().trim()))) {
                 errorLabel.setText("Invalid Username or Password");
             } else {
+                ApplicationMain.currentSession = new String[]{"Client", usernameField.getText()};
                 FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("home-page.fxml"));
                 root = fxmlLoader.load();
                 stage = (Stage) loginBtn.getScene().getWindow();
