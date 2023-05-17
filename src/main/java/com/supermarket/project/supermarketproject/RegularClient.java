@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.supermarket.project.supermarketproject;
 
 import java.util.ArrayList;
@@ -11,7 +6,7 @@ import java.util.Date;
 
 
 public class RegularClient extends Person{
-    
+
     private int age;
     private String[] address;
     private Date initialDate;
@@ -36,7 +31,7 @@ public class RegularClient extends Person{
 
     public RegularClient(String id, String name, int age, String phoneNum, String street , String town, String homeNum, String passwordHash){
         this.address = new String[3];
-        
+
         this.id = id;
         this.name = name;
         this.age = age;
@@ -106,14 +101,14 @@ public class RegularClient extends Person{
     }
     @Override
     public void check(){
-       Date now = new Date();
-       if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
-          this.moneySpent = 0;
-          this.nextCheck= now;
-          this.nextCheck.setMonth(now.getMonth()+1);
-          }
-       
+        Date now = new Date();
+        if(now.getMonth() >= this.nextCheck.getMonth()&& now.getDay() >= this.nextCheck.getDay()){
+            this.moneySpent = 0;
+            this.nextCheck= now;
+            this.nextCheck.setMonth(now.getMonth()+1);
         }
+
+    }
 
     public int getMoneySpent() {
         return moneySpent;
@@ -185,7 +180,7 @@ public class RegularClient extends Person{
             }
         }
 
-        }
+    }
     public void isGoldenClients() {
         Date currentDate = new Date();
         if (currentDate.getYear() - getInitialDate().getYear() >= 5){
@@ -194,7 +189,7 @@ public class RegularClient extends Person{
             ApplicationMain.goldenClients.add(c);
             ApplicationMain.serial(ApplicationMain.goldenClients,"GoldenClients");
         }
-       
+
     }
-   
+
 }

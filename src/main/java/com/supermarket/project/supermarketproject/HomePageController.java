@@ -19,10 +19,8 @@ public class HomePageController {
 
     @FXML
     private Label counter1,counter2,counter3,counter4,counter5,counter6;
-//    @FXML
-//    private Button plus1,plus2,plus3,plus4,plus5,plus6;
-//    @FXML
-//    private Button minus1,minus2,minus3,minus4,minus5,minus6;
+    @FXML
+    private Label price1,price2,price3,price4,price5,price6;
     @FXML
     private Button homeBtn,cartBtn,profileBtn;
 
@@ -34,62 +32,100 @@ public class HomePageController {
     @FXML
     public void incrementCounter1(ActionEvent event) {
         int currentValue = Integer.parseInt(counter1.getText());
+        int currentPrice = Integer.parseInt(price1.getText());
         counter1.setText(String.valueOf(currentValue + 1));
+        if (Integer.parseInt(counter1.getText()) != 1) {
+            price1.setText(String.valueOf(currentPrice + 10));
+        }
     }
     @FXML
     public void incrementCounter2(ActionEvent event) {
         int currentValue = Integer.parseInt(counter2.getText());
+        int currentPrice = Integer.parseInt(price2.getText());
         counter2.setText(String.valueOf(currentValue + 1));
+        price2.setText(String.valueOf(currentPrice + 194));
     }
     @FXML
     public void incrementCounter3(ActionEvent event) {
         int currentValue = Integer.parseInt(counter3.getText());
+        int currentPrice = Integer.parseInt(price3.getText());
         counter3.setText(String.valueOf(currentValue + 1));
+        price3.setText(String.valueOf(currentPrice + 60));
     }
     @FXML
     public void incrementCounter4(ActionEvent event) {
         int currentValue = Integer.parseInt(counter4.getText());
+        int currentPrice = Integer.parseInt(price4.getText());
         counter4.setText(String.valueOf(currentValue + 1));
+        price4.setText(String.valueOf(currentPrice + 4));
     }
     @FXML
     public void incrementCounter5(ActionEvent event) {
         int currentValue = Integer.parseInt(counter5.getText());
+        int currentPrice = Integer.parseInt(price5.getText());
         counter5.setText(String.valueOf(currentValue + 1));
+        price5.setText(String.valueOf(currentPrice + 5));
     }
     @FXML
     public void incrementCounter6(ActionEvent event) {
         int currentValue = Integer.parseInt(counter6.getText());
+        int currentPrice = Integer.parseInt(price6.getText());
         counter6.setText(String.valueOf(currentValue + 1));
+        price6.setText(String.valueOf(currentPrice + 11));
     }
     @FXML
     public void decrementCounter1(ActionEvent event) {
         int currentValue = Integer.parseInt(counter1.getText());
-        counter1.setText(String.valueOf(currentValue - 1));
+        if (currentValue > 0) {
+            counter1.setText(String.valueOf(currentValue - 1));
+            int currentPrice = Integer.parseInt(price1.getText());
+            price1.setText(String.valueOf(currentPrice - 10));
+        }
     }
     @FXML
     public void decrementCounter2(ActionEvent event) {
         int currentValue = Integer.parseInt(counter2.getText());
-        counter2.setText(String.valueOf(currentValue - 1));
+        if (currentValue > 0) {
+            counter2.setText(String.valueOf(currentValue - 1));
+            int currentPrice = Integer.parseInt(price2.getText());
+            price2.setText(String.valueOf(currentPrice - 194));
+        }
     }
     @FXML
     public void decrementCounter3(ActionEvent event) {
         int currentValue = Integer.parseInt(counter3.getText());
-        counter3.setText(String.valueOf(currentValue - 1));
+        if (currentValue > 0) {
+            counter3.setText(String.valueOf(currentValue - 1));
+            int currentPrice = Integer.parseInt(price3.getText());
+            price3.setText(String.valueOf(currentPrice - 60));
+        }
     }
     @FXML
     public void decrementCounter4(ActionEvent event) {
         int currentValue = Integer.parseInt(counter4.getText());
-        counter4.setText(String.valueOf(currentValue - 1));
+        if (currentValue > 0) {
+            counter4.setText(String.valueOf(currentValue - 1));
+            int currentPrice = Integer.parseInt(price4.getText());
+            price4.setText(String.valueOf(currentPrice - 4));
+        }
     }
     @FXML
     public void decrementCounter5(ActionEvent event) {
         int currentValue = Integer.parseInt(counter5.getText());
-        counter5.setText(String.valueOf(currentValue - 1));
+        if (currentValue > 0) {
+            counter5.setText(String.valueOf(currentValue - 1));
+            int currentPrice = Integer.parseInt(price5.getText());
+            price5.setText(String.valueOf(currentPrice - 5));
+        }
     }
     @FXML
     public void decrementCounter6(ActionEvent event) {
         int currentValue = Integer.parseInt(counter6.getText());
-        counter6.setText(String.valueOf(currentValue - 1));
+        if (currentValue > 0) {
+            counter6.setText(String.valueOf(currentValue - 1));
+            int currentPrice = Integer.parseInt(price6.getText());
+            price6.setText(String.valueOf(currentPrice - 11));
+        }
     }
     public void toCartPage(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart-page.fxml"));
