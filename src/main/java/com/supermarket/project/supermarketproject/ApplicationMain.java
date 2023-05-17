@@ -33,17 +33,19 @@ public class ApplicationMain extends Application {
         staff = new ArrayList<>();
         if (!hasRan())
         {
-            serial(regularClients);
+            serial(regularClients,"Clients.ser");
+            serial(staff,"Staff.ser");
         }
         else{
-         regularClients = deserial();
+         regularClients = deserial("Clients.ser");
+         staff = deserial("Staff.ser");
         }
        launch();
     }
 
-    static void serial(ArrayList<RegularClient> al)
+    static void serial(ArrayList al,String filename)
     {
-        try (FileOutputStream fos = new FileOutputStream("Clients.ser");
+        try (FileOutputStream fos = new FileOutputStream(filename);
              ObjectOutputStream oos = new ObjectOutputStream(fos);) {
 
             oos.writeObject(al);
@@ -54,9 +56,9 @@ public class ApplicationMain extends Application {
             throw new RuntimeException(e);
         }
     }
-    static ArrayList<RegularClient> deserial()
+    static ArrayList deserial(String filename)
     {
-        try (FileInputStream fis = new FileInputStream("Clients.ser");
+        try (FileInputStream fis = new FileInputStream(filename);
              ObjectInputStream ois = new ObjectInputStream(fis);) {
 
              return  (ArrayList) ois.readObject();

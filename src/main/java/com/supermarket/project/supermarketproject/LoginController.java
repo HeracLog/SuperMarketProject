@@ -100,6 +100,7 @@ public class LoginController {
             if (!found || !r.getCell(5).getStringCellValue().contains(PassHash.hash(passwordField.getText().trim()))) {
                 errorLabel.setText("Invalid Username or Password");
             } else {
+                ApplicationMain.currentSession = new String[]{"Staff", usernameField.getText()};
                 FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("StaffHome.fxml"));
                 root = fxmlLoader.load();
                 stage = (Stage) loginBtn.getScene().getWindow();

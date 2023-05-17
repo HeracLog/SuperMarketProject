@@ -1,5 +1,6 @@
 package com.supermarket.project.supermarketproject;
 
+import java.io.Serializable;
 import java.util.Date;
 
 public class Staff extends Person {
@@ -122,7 +123,7 @@ public class Staff extends Person {
                 ", address='" + address + '\'' +
                 '}';
     }
-     static class pointofsale{
+     static class pointofsale implements Serializable{
          String id;
          public pointofsale(String id){
              this.id=id;
@@ -136,7 +137,7 @@ public class Staff extends Person {
             this.id = id;
         }
     }
-    static class privatecard{
+    static class privatecard implements Serializable {
         int cardid;
           static pointofsale pos=new pointofsale("333");
 
