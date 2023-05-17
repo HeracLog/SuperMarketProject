@@ -27,7 +27,7 @@ public class DataStore {
         if (dataStored.getSheet("Staff")==null){
             sheet = dataStored.createSheet("Staff");
             Row row = sheet.createRow(0);
-            String[] arrNames = {"Name", "ID", "Salary","Phone Number","Address","Password"};
+            String[] arrNames = {"Name","Username", "ID", "Salary","Phone Number","Address","Password"};
             int i = 0;
             Cell cell;
             for (String title: arrNames)
@@ -47,14 +47,16 @@ public class DataStore {
             c = r.createCell(0);
             c.setCellValue(s.getName());
             c = r.createCell(1);
-            c.setCellValue(s.getId());
+            c.setCellValue(s.getPrivatecard().getUsername());
             c = r.createCell(2);
-            c.setCellValue(s.getSalary());
+            c.setCellValue(s.getId());
             c = r.createCell(3);
-            c.setCellValue(s.getPhoneNum());
+            c.setCellValue(s.getSalary());
             c = r.createCell(4);
-            c.setCellValue(s.getAddress());
+            c.setCellValue(s.getPhoneNum());
             c = r.createCell(5);
+            c.setCellValue(s.getAddress());
+            c = r.createCell(6);
             c.setCellValue(s.getPasswordHash());
             s.setWasStored(true);
         }

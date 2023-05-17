@@ -86,7 +86,7 @@ public class LoginController {
             boolean found = false;
             Row r = sheet.getRow(i);
             while (sheet.getRow(r.getRowNum() + 1) != null) {
-                if (r.getCell(0).getStringCellValue().contains(usernameField.getText().trim())) {
+                if (r.getCell(1).getStringCellValue().contains(usernameField.getText().trim())) {
                     found = true;
                     break;
                 } else {
@@ -94,10 +94,10 @@ public class LoginController {
                     r = sheet.getRow(i);
                 }
             }
-            if (r.getCell(0).getStringCellValue().contains(usernameField.getText().trim())) {
+            if (r.getCell(1).getStringCellValue().contains(usernameField.getText().trim())) {
                 found = true;
             }
-            if (!found || !r.getCell(5).getStringCellValue().contains(PassHash.hash(passwordField.getText().trim()))) {
+            if (!found || !r.getCell(6).getStringCellValue().contains(PassHash.hash(passwordField.getText().trim()))) {
                 errorLabel.setText("Invalid Username or Password");
             } else {
                 ApplicationMain.currentSession = new String[]{"Staff", usernameField.getText()};

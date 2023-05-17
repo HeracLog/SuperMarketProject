@@ -32,7 +32,7 @@ public class StaffSignUp {
     protected void signUp() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         root = fxmlLoader.load();
-        Staff s = new Staff(id.getText(),name.getText(),Double.parseDouble(salary.getText()),phoneNumber.getText(),address.getText(),name.getText(),PassHash.hash(password.getText()));
+        Staff s = new Staff(id.getText(),name.getText(),Double.parseDouble(salary.getText()),phoneNumber.getText(),address.getText(),username.getText(),PassHash.hash(password.getText()));
         ApplicationMain.staff.add(s);
         ApplicationMain.serial(ApplicationMain.staff,"Staff.ser");
         stage = (Stage) signUpBtn2.getScene().getWindow();

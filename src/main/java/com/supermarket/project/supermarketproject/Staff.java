@@ -30,7 +30,7 @@ public class Staff extends Person {
     }
 
     public Staff(String id, String name, double salary, String phoneNum, String address, String username, String passwordHash) {
-        this.privatecard=new privatecard();
+        this.privatecard=new privatecard(Integer.parseInt(id),username);
         this.id = id;
         this.name = name;
         this.salary = salary;

@@ -47,7 +47,7 @@ public class StaffProfileController {
     {
      for(Staff s:ApplicationMain.staff)
      {
-        if (ApplicationMain.currentSession[1].contains(s.getName()))
+        if (ApplicationMain.currentSession[1].contains(s.getPrivatecard().getUsername()))
         {
             return s;
         }
