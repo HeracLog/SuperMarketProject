@@ -2,6 +2,7 @@ package com.supermarket.project.supermarketproject;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -17,7 +18,7 @@ public class ApplicationMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ApplicationMain.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 450);
+        Scene scene = new Scene((Parent) fxmlLoader.load(), 800, 450);
         stage.setTitle("supermarketName");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("OIP.jpeg")));
         stage.setResizable(false);

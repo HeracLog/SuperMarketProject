@@ -32,14 +32,14 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public static ArrayList<Product> productList = new ArrayList<>();
+    public static ArrayList<Product> productList = new ArrayList<Product>();
 
     public Product(int ID, String name, String category, double buyPrice, String expiryDate, int numInStock, int Prod){
         this.ID= ID;
         this.name = name;
         this.category = category;
         this.buyPrice = buyPrice;
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+        SimpleDateFormat ft = new SimpleDateFormat ("dd-MM-yyyy");
         try {
             this.expiryDate = ft.parse(expiryDate);
         }

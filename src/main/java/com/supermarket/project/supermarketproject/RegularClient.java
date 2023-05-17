@@ -141,8 +141,6 @@ public class RegularClient extends Person{
         x.append("Buy price"+ "  ");
         x.append("Quantity" + "  ");
         x.append("Total price" + "  \n");
-         
-        if (!isGolden) {
             isGoldenClients(this);
             check();
             s.sell(p);
@@ -155,18 +153,16 @@ public class RegularClient extends Person{
 
                
                
-                y.setNumInStock(y.getNumInStock() - 1);
-                moneySpent += (int) y.getBuyPrice();
-                currentReceipt += y.getBuyPrice();
-                y.setProductsSold(y.getProductsSold() + 1);
+                y.setNumInStock(y.getNumInStock() - y.getQuantity());
+                moneySpent += (int) y.getBuyPrice()*y.getQuantity();
+                currentReceipt += y.getBuyPrice()*y.getQuantity();
+                y.setProductsSold(y.getProductsSold() + y.getQuantity());
                 x.append("\n");
             }
             x.append( "staff:"+s.getName() + "  ");
             x.append(  s.getId());
             x.append(s.getPrivatecard().getPOS().getId() + "\n");
 
-            String f= "totalprice";
-                System.out.println("totalprice"+currentReceipt);
                 x.append("totalprice "+currentReceipt);
             if (moneySpent >= 4000) {
                 currentReceipt -= currentReceipt * 0.05;
@@ -179,10 +175,7 @@ public class RegularClient extends Person{
             }
             invoice.x(x.toString(), name, id);
 
-        }
-        else{
-            ApplicationMain.goldenClients.get(goldenClientIndex).buy(p,s);
-        }
+
         }
     public void isGoldenClients(RegularClient c) {
         Date currentDate = new Date();

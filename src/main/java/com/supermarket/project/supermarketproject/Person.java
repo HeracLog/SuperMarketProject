@@ -6,7 +6,7 @@
 package com.supermarket.project.supermarketproject;
 
 
-public abstract  class Person {
+public abstract class Person {
     protected String id ;
     protected String name ;
     protected String phoneNum;

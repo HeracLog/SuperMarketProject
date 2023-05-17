@@ -37,20 +37,21 @@ public class GoldenClients extends RegularClient{
                y.getQuantity();
                gc.append(y.getQuantity()+"      ");
                gc.append(y.getQuantity()*y.getBuyPrice()+"       ");
-               gc.append( "staff:"+s.getName()+"      ");
-                gc.append(  s.getId()+"   ");
-                 gc.append(s.getPrivatecard().getPOS().getId() + "\n");
 
-              
-            y.setNumInStock(y.getNumInStock() - 1);
-            setMoneySpent(getMoneySpent()+(int) y.getBuyPrice());
+            y.setNumInStock(y.getNumInStock() - y.getQuantity());
+            setMoneySpent(getMoneySpent()+(int) y.getBuyPrice()*y.getQuantity());
             if (y.getName() == favoriteProduct.getName())
             {
                 favourtieBought = true;
             }
-            currentReceipt += y.getBuyPrice();
-            y.setProductsSold(y.getProductsSold() + 1);
-        } String x="totalprice";
+            currentReceipt += y.getBuyPrice()*y.getQuantity();
+            y.setProductsSold(y.getProductsSold() + y.getQuantity());
+        }
+        gc.append( "staff:"+s.getName()+"      ");
+        gc.append(  s.getId()+"   ");
+        gc.append(s.getPrivatecard().getPOS().getId() + "\n");
+
+        String x="totalprice";
         System.out.println("totalprice"+currentReceipt);
         gc.append( ("totalprice"+currentReceipt));
         if (getMoneySpent() >= 4000) {

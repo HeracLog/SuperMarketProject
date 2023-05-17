@@ -108,8 +108,7 @@ public class Staff extends Person {
        
     public void sell(Product[] p){
         for(Product y:p){
-            invoices+=y.getBuyPrice();
-            
+            invoices+=y.getBuyPrice() * y.getQuantity();
         }
       }
 

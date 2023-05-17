@@ -22,7 +22,7 @@ public class WeeklyCheck {
                 checkStock(p);
                 timer.cancel();
             }
-        }, 24 * 60 * 60 * 1000* 7);
+        }, 7* 24 * 60 * 60 * 1000);
     }
     public static void weeklyMostSold(ArrayList<Product> p)
     {
@@ -37,7 +37,7 @@ public class WeeklyCheck {
     }
     public static void mostSold(ArrayList<Product> p)
     {
-        LinkedList<Product> sorted = new LinkedList<>();
+        LinkedList<Product> sorted = new LinkedList<Product>();
         for (Product prod: p)
         {
             boolean added = false;
