@@ -67,7 +67,7 @@ public class LoginController {
             if (!found || !r.getCell(7).getStringCellValue().contains(PassHash.hash(passwordField.getText().trim()))) {
                 errorLabel.setText("Invalid Username or Password");
             } else {
-                FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("HomePage.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("home-page.fxml"));
                 root = fxmlLoader.load();
                 stage = (Stage) loginBtn.getScene().getWindow();
                 stage.getIcons().add(new Image(getClass().getResourceAsStream("OIP.jpeg")));
@@ -77,7 +77,6 @@ public class LoginController {
             }
         }
         else {
-<<<<<<< Updated upstream
             HSSFWorkbook dataStored;
             File f = new File("Staff.xls");
             dataStored = new HSSFWorkbook(new FileInputStream("Staff.xls"));
@@ -113,9 +112,6 @@ public class LoginController {
     public void signUp(ActionEvent event) throws IOException {
         if (Choice.getValue().contains("Client")) {
             FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("sign-up.fxml"));
-=======
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("home-page.fxml"));
->>>>>>> Stashed changes
             root = fxmlLoader.load();
             stage = (Stage) signUpBtn.getScene().getWindow();
             stage.getIcons().add(new Image(getClass().getResourceAsStream("OIP.jpeg")));
