@@ -101,6 +101,7 @@ public class HomePageController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profile-page.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) cartBtn.getScene().getWindow();
+//        stage.getIcons().add(new Image(getClass().getResourceAsStream("icons8-male-user-48.png")));
         stage.setScene(new Scene(root));
     }
 
