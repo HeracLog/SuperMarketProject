@@ -1,5 +1,7 @@
 package com.supermarket.project.supermarketproject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -32,6 +34,26 @@ public class Product {
 
     public static ArrayList<Product> productList = new ArrayList<>();
 
+    public Product(int ID, String name, String category, double buyPrice, String expiryDate, int numInStock, int Prod){
+        this.ID= ID;
+        this.name = name;
+        this.category = category;
+        this.buyPrice = buyPrice;
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+        try {
+            this.expiryDate = ft.parse(expiryDate);
+        }
+        catch (ParseException pe)
+        {
+            pe.printStackTrace();
+        }
+        this.numInStock = numInStock;
+        // Add the new product instance to the productList ArrayList
+        productList.add(this);
+        this.productsSold = Prod;
+        GenreateQR.generateQRCode(toString(),name,""+ID);
+        DataStore.store(this);
+    }
     public Product(int ID, String name, String category, double buyPrice, Date expiryDate, int numInStock, int Prod, int quantity){
         this.ID= ID;
         this.name = name;
