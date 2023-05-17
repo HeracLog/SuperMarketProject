@@ -13,8 +13,8 @@ Check attached PDF for reference.
 |Purple|Youssef Salah|22010442|
 
 ### To-DO
+- [ ] GUI (In progress) <br>
 - [x] Invoices <br>
-- [ ] GUI <br>
 - [x] UML
 - [x] Staff Class <br>
 - [x] Client Class <br>
