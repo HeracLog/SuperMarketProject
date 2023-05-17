@@ -3,19 +3,22 @@ package com.supermarket.project.supermarketproject;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ApplicationMain extends Application {
     static ArrayList<GoldenClients> goldenClients;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ApplicationMain.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(ApplicationMain.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 450);
+        stage.setTitle("supermarketName");
+        Image image = new Image("D:\\java\\SuperMarketProject\\src\\main\\resources\\com\\supermarket\\project\\supermarketproject\\OIP.jpeg ");
+        stage.getIcons().add(image);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
@@ -38,10 +41,10 @@ public class ApplicationMain extends Application {
 //
 //        DataStore.store(new Product(13,"Biscuits","Sweets",1.5,new Date(),7,32));
 
-        RegularClient ali = new RegularClient("!31","Ali",23,"322323222","5 street","town","Home");
-        Staff ahmed = new Staff("43434","Ahmed",12121,"03433434","Adress");
-
-        ali.buy(new Product[]{new Product(123, "Apples", "Fruit", 122, new Date(), 23, 122,2), new Product(123, "Bananas", "Fruit", 122, new Date(), 23, 122,7)},ahmed);
+//        RegularClient ali = new RegularClient("!31","Ali",23,"322323222","5 street","town","Home");
+//        Staff ahmed = new Staff("43434","Ahmed",12121,"03433434","Adress");
+//
+//        ali.buy(new Product[]{new Product(123, "Apples", "Fruit", 122, new Date(), 23, 122,2), new Product(123, "Bananas", "Fruit", 122, new Date(), 23, 122,7)},ahmed);
 
        launch();
     }

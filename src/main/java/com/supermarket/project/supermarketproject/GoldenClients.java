@@ -82,7 +82,7 @@ public class GoldenClients extends RegularClient{
             System.out.println("priceafterdiscount"+currentReceipt);
               gc.append(("priceafterdiscount"+currentReceipt));
               gc.append("thank you for shopping with us");
-              invoice.x(gc.toString(), name, Id);
+              invoice.x(gc.toString(), name, id);
             
     }
     private boolean isBday()
