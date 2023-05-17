@@ -1,5 +1,6 @@
 package com.supermarket.project.supermarketproject;
 
+import java.util.ArrayList;
 import java.util.Date;
 public class GoldenClients extends RegularClient{
     private Date birthDay;
@@ -22,19 +23,17 @@ public class GoldenClients extends RegularClient{
     }
 
     @Override
-    public void buy(Product[] p, Staff s) {
+    public void buy(ArrayList<Product> p, Staff s) {
         StringBuilder gc=new StringBuilder();
-        
+        Date z= new Date();
+        gc.append(z + "\n");
         this.check();
         s.sell(p);
         double currentReceipt = 0;
         boolean favourtieBought = false;
         for (Product y : p) {
-              y.getName();
                gc.append(y.getName()+"     ");
-               y.getBuyPrice();
                gc.append(y.getBuyPrice()+"      ");
-               y.getQuantity();
                gc.append(y.getQuantity()+"      ");
                gc.append(y.getQuantity()*y.getBuyPrice()+"       ");
 
@@ -47,8 +46,8 @@ public class GoldenClients extends RegularClient{
             currentReceipt += y.getBuyPrice()*y.getQuantity();
             y.setProductsSold(y.getProductsSold() + y.getQuantity());
         }
-        gc.append( "staff:"+s.getName()+"      ");
-        gc.append(  s.getId()+"   ");
+        gc.append("staff:"+s.getName()+"      ");
+        gc.append( s.getId()+"   ");
         gc.append(s.getPrivatecard().getPOS().getId() + "\n");
 
         String x="totalprice";

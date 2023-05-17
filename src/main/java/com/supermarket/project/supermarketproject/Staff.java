@@ -1,6 +1,7 @@
 package com.supermarket.project.supermarketproject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Staff extends Person {
@@ -107,7 +108,7 @@ public class Staff extends Person {
           }
      }
        
-    public void sell(Product[] p){
+    public void sell(ArrayList<Product> p){
         for(Product y:p){
             invoices+=y.getBuyPrice() * y.getQuantity();
         }

@@ -5,6 +5,7 @@
  */
 package com.supermarket.project.supermarketproject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -133,55 +134,66 @@ public class RegularClient extends Person{
                 '}';
     }
 
-    public void buy(Product[] p, Staff s){
-         StringBuilder x =new StringBuilder();
-         Date z= new Date();
-         x.append(z + "\n");
-        x.append("Name" + "     ");
-        x.append("Buy price"+ "  ");
-        x.append("Quantity" + "  ");
-        x.append("Total price" + "  \n");
-            isGoldenClients(this);
+    public void buy(ArrayList<Product> p, Staff s){
+        if (!isGolden) {
+            StringBuilder x = new StringBuilder();
+            Date z = new Date();
+            x.append(z + "\n");
+            x.append("Name" + "     ");
+            x.append("Buy price" + "  ");
+            x.append("Quantity" + "  ");
+            x.append("Total price" + "  \n");
             check();
             s.sell(p);
             double currentReceipt = 0;
             for (Product y : p) {
-               x.append(y.getName() + "     ");
-               x.append(y.getBuyPrice()+ "       ");
-               x.append(y.getQuantity() + "      ");
-               x.append(y.getQuantity()*y.getBuyPrice() + "  \n");
+                x.append(y.getName() + "     ");
+                x.append(y.getBuyPrice() + "       ");
+                x.append(y.getQuantity() + "      ");
+                x.append(y.getQuantity() * y.getBuyPrice() + "  \n");
 
-               
-               
+
                 y.setNumInStock(y.getNumInStock() - y.getQuantity());
-                moneySpent += (int) y.getBuyPrice()*y.getQuantity();
-                currentReceipt += y.getBuyPrice()*y.getQuantity();
+                moneySpent += (int) y.getBuyPrice() * y.getQuantity();
+                currentReceipt += y.getBuyPrice() * y.getQuantity();
                 y.setProductsSold(y.getProductsSold() + y.getQuantity());
                 x.append("\n");
             }
-            x.append( "staff:"+s.getName() + "  ");
-            x.append(  s.getId());
+            x.append("staff:" + s.getName() + "  ");
+            x.append(s.getId());
             x.append(s.getPrivatecard().getPOS().getId() + "\n");
 
-                x.append("totalprice "+currentReceipt);
+            x.append("totalprice " + currentReceipt);
             if (moneySpent >= 4000) {
                 currentReceipt -= currentReceipt * 0.05;
-                String o= "priceafterdiscount";
-                System.out.println("priceafterdiscount"+currentReceipt);
-                x.append("priceafterdiscount"+currentReceipt);
+                String o = "priceafterdiscount";
+                System.out.println("priceafterdiscount" + currentReceipt);
+                x.append("priceafterdiscount" + currentReceipt);
                 x.append("thank you for shopping with us");
 
-                
+
             }
             invoice.x(x.toString(), name, id);
-
+        }
+        else {
+            for (GoldenClients gc :ApplicationMain.goldenClients)
+            {
+                if (gc.getName() == this.name && gc.getId() == this.id)
+                {
+                    gc.buy(p,s);
+                }
+            }
+        }
 
         }
-    public void isGoldenClients(RegularClient c) {
+    public void isGoldenClients() {
         Date currentDate = new Date();
         if (currentDate.getYear() - getInitialDate().getYear() >= 5){
-            c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],null,null,passwordHash);
-}
+            GoldenClients c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],null,null,passwordHash);
+            isGolden = true;
+            ApplicationMain.goldenClients.add(c);
+            ApplicationMain.serial(ApplicationMain.goldenClients,"GoldenClients");
+        }
        
     }
    

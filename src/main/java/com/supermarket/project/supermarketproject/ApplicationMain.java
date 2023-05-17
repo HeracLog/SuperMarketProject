@@ -30,15 +30,21 @@ public class ApplicationMain extends Application {
     public static void main(String[] args) throws IOException {
         currentSession = new String[2];
         regularClients = new ArrayList<>();
+        products = new ArrayList<>();
+        goldenClients = new ArrayList<>();
         staff = new ArrayList<>();
         if (!hasRan())
         {
             serial(regularClients,"Clients.ser");
             serial(staff,"Staff.ser");
+            serial(products,"Products.ser");
+            serial(goldenClients,"GoldenClients.ser");
         }
         else{
          regularClients = deserial("Clients.ser");
          staff = deserial("Staff.ser");
+         products = deserial("Products.ser");
+         goldenClients = deserial("GoldenClients.ser");
         }
        launch();
     }

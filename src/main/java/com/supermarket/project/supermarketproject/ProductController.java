@@ -28,6 +28,8 @@ public class ProductController {
     @FXML
     public void Store() throws IOException {
         Product p = new Product(Integer.parseInt(ID.getText()),name.getText(),category.getText(),Double.parseDouble(Price.getText()),expiryDate.getText(),Integer.parseInt(stock.getText()),0);
+        ApplicationMain.products.add(p);
+        ApplicationMain.serial(ApplicationMain.products,"Products.ser");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StaffHome.fxml"));
         root = fxmlLoader.load();
         Stage stage = (Stage) name.getScene().getWindow();
