@@ -61,7 +61,7 @@ public class ProfilePageController {
         stage.setScene(new Scene(root));
     }
     public void canBeGolden() throws IOException {
-        if(!regularClient.isGoldenClients())
+        if(regularClient.isGoldenClients())
         {
             Stage s = new Stage();
             FXMLLoader load = new FXMLLoader(getClass().getResource("GoldenPrompt.fxml"));

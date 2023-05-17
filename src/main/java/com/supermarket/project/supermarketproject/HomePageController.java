@@ -46,35 +46,45 @@ public class HomePageController {
         int currentValue = Integer.parseInt(counter2.getText());
         int currentPrice = Integer.parseInt(price2.getText());
         counter2.setText(String.valueOf(currentValue + 1));
-        price2.setText(String.valueOf(currentPrice + 194));
+        if (Integer.parseInt(counter2.getText()) != 1) {
+            price2.setText(String.valueOf(currentPrice + 194));
+        }
     }
     @FXML
     public void incrementCounter3(ActionEvent event) {
         int currentValue = Integer.parseInt(counter3.getText());
         int currentPrice = Integer.parseInt(price3.getText());
         counter3.setText(String.valueOf(currentValue + 1));
-        price3.setText(String.valueOf(currentPrice + 60));
+        if (Integer.parseInt(counter3.getText()) != 1) {
+            price3.setText(String.valueOf(currentPrice + 60));
+        }
     }
     @FXML
     public void incrementCounter4(ActionEvent event) {
         int currentValue = Integer.parseInt(counter4.getText());
         int currentPrice = Integer.parseInt(price4.getText());
         counter4.setText(String.valueOf(currentValue + 1));
-        price4.setText(String.valueOf(currentPrice + 4));
+        if (Integer.parseInt(counter4.getText()) != 1) {
+            price4.setText(String.valueOf(currentPrice + 4));
+        }
     }
     @FXML
     public void incrementCounter5(ActionEvent event) {
         int currentValue = Integer.parseInt(counter5.getText());
         int currentPrice = Integer.parseInt(price5.getText());
         counter5.setText(String.valueOf(currentValue + 1));
-        price5.setText(String.valueOf(currentPrice + 5));
+        if (Integer.parseInt(counter5.getText()) != 1) {
+            price5.setText(String.valueOf(currentPrice + 5));
+        }
     }
     @FXML
     public void incrementCounter6(ActionEvent event) {
         int currentValue = Integer.parseInt(counter6.getText());
         int currentPrice = Integer.parseInt(price6.getText());
         counter6.setText(String.valueOf(currentValue + 1));
-        price6.setText(String.valueOf(currentPrice + 11));
+        if (Integer.parseInt(counter6.getText()) != 1) {
+            price6.setText(String.valueOf(currentPrice + 11));
+        }
     }
     @FXML
     public void decrementCounter1(ActionEvent event) {
@@ -82,7 +92,9 @@ public class HomePageController {
         if (currentValue > 0) {
             counter1.setText(String.valueOf(currentValue - 1));
             int currentPrice = Integer.parseInt(price1.getText());
-            price1.setText(String.valueOf(currentPrice - 10));
+            if (currentValue > 1) {
+                price1.setText(String.valueOf(currentPrice - 10));
+            }
         }
     }
     @FXML
@@ -91,7 +103,9 @@ public class HomePageController {
         if (currentValue > 0) {
             counter2.setText(String.valueOf(currentValue - 1));
             int currentPrice = Integer.parseInt(price2.getText());
-            price2.setText(String.valueOf(currentPrice - 194));
+            if (currentValue > 1) {
+                price2.setText(String.valueOf(currentPrice - 194));
+            }
         }
     }
     @FXML
@@ -100,7 +114,9 @@ public class HomePageController {
         if (currentValue > 0) {
             counter3.setText(String.valueOf(currentValue - 1));
             int currentPrice = Integer.parseInt(price3.getText());
-            price3.setText(String.valueOf(currentPrice - 60));
+            if (currentValue > 1) {
+                price3.setText(String.valueOf(currentPrice - 60));
+            }
         }
     }
     @FXML
@@ -109,7 +125,9 @@ public class HomePageController {
         if (currentValue > 0) {
             counter4.setText(String.valueOf(currentValue - 1));
             int currentPrice = Integer.parseInt(price4.getText());
-            price4.setText(String.valueOf(currentPrice - 4));
+            if (currentValue > 1) {
+                price4.setText(String.valueOf(currentPrice - 4));
+            }
         }
     }
     @FXML
@@ -118,7 +136,9 @@ public class HomePageController {
         if (currentValue > 0) {
             counter5.setText(String.valueOf(currentValue - 1));
             int currentPrice = Integer.parseInt(price5.getText());
-            price5.setText(String.valueOf(currentPrice - 5));
+            if (currentValue > 1) {
+                price5.setText(String.valueOf(currentPrice - 5));
+            }
         }
     }
     @FXML
@@ -127,7 +147,9 @@ public class HomePageController {
         if (currentValue > 0) {
             counter6.setText(String.valueOf(currentValue - 1));
             int currentPrice = Integer.parseInt(price6.getText());
-            price6.setText(String.valueOf(currentPrice - 11));
+            if (currentValue > 1) {
+                price6.setText(String.valueOf(currentPrice - 11));
+            }
         }
     }
     public void toCartPage(ActionEvent event) throws IOException {
@@ -151,6 +173,31 @@ public class HomePageController {
         {
             ApplicationMain.products.get(4).setQuantity(Integer.parseInt(counter1.getText()));
             cart.add(ApplicationMain.products.get(4));
+        }
+        if (Integer.parseInt(counter2.getText()) >= 1)
+        {
+            ApplicationMain.products.get(1).setQuantity(Integer.parseInt(counter2.getText()));
+            cart.add(ApplicationMain.products.get(1));
+        }
+        if (Integer.parseInt(counter3.getText()) >= 1)
+        {
+            ApplicationMain.products.get(2).setQuantity(Integer.parseInt(counter3.getText()));
+            cart.add(ApplicationMain.products.get(2));
+        }
+        if (Integer.parseInt(counter4.getText()) >= 1)
+        {
+            ApplicationMain.products.get(3).setQuantity(Integer.parseInt(counter4.getText()));
+            cart.add(ApplicationMain.products.get(3));
+        }
+        if (Integer.parseInt(counter5.getText()) >= 1)
+        {
+            ApplicationMain.products.get(0).setQuantity(Integer.parseInt(counter5.getText()));
+            cart.add(ApplicationMain.products.get(0));
+        }
+        if (Integer.parseInt(counter6.getText()) >= 1)
+        {
+            ApplicationMain.products.get(5).setQuantity(Integer.parseInt(counter6.getText()));
+            cart.add(ApplicationMain.products.get(5));
         }
     }
 

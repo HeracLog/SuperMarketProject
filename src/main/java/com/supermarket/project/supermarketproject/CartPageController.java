@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,6 +24,8 @@ public class CartPageController {
     ComboBox<Staff> staffList;
     @FXML
     TextArea productField;
+    @FXML
+    Label buyLabel;
     public void initialize() {
         homeBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-home-24.png"))));
         cartBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-cart-30.png"))));
@@ -33,7 +36,7 @@ public class CartPageController {
         }
         for (Product p: HomePageController.cart)
         {
-            productField.appendText(p.getName() + " " + p.getBuyPrice() +" " + p.getQuantity() + " " + p.getBuyPrice()*p.getQuantity());
+            productField.appendText(p.getName() + " " + p.getBuyPrice() +" " + p.getQuantity() + " " + p.getBuyPrice()*p.getQuantity() + "\n");
         }
     }
     public void toHomePage(ActionEvent event) throws IOException {
@@ -53,6 +56,8 @@ public class CartPageController {
     protected void onBuy()
     {
         getCurrentClientSession().buy(HomePageController.cart,staffList.getValue());
+        productField.setText("");
+        buyLabel.setText("Purchase complete!");
     }
     public RegularClient getCurrentClientSession()
     {

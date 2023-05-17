@@ -1,0 +1,12 @@
+Thu May 18 01:10:04 EET 2023
+Name     Buy price  Quantity  Total price  
+Fine tissues     15.0       1      15.0  
+
+Nice coconut biscuits     4.0       1      4.0  
+
+Tiger     5.0       2      10.0  
+
+Fanta orange 1.8L     17.0       1      17.0  
+
+staff:Ibrahim Farid  1204333
+totalprice 46.0

@@ -31,6 +31,7 @@
             <Button fx:id="buyButton" layoutX="592.0" layoutY="360.0" mnemonicParsing="false" onAction="#onBuy" text="Buy" />
             <ComboBox fx:id="staffList" layoutX="538.0" layoutY="116.0" prefWidth="150.0" />
             <Label layoutX="430.0" layoutY="87.0" text="Staff handeling purchase" />
+            <Label fx:id="buyLabel" layoutX="557.0" layoutY="297.0" textFill="#22ff00" />
          </children>
       </AnchorPane>
    </children>
