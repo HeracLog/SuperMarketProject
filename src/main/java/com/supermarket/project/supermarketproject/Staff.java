@@ -13,6 +13,8 @@ public class Staff extends Person {
     private int cardid;
     private privatecard privatecard;
 
+    private String passwordHash;
+
     public boolean isWasStored() {
         return wasStored;
     }
@@ -21,7 +23,11 @@ public class Staff extends Person {
         this.wasStored = wasStored;
     }
 
-    public Staff(String id, String name, double salary, String phoneNum, String address,  int cardid , String username) {
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public Staff(String id, String name, double salary, String phoneNum, String address, String username, String passwordHash) {
         this.privatecard=new privatecard();
         this.id = id;
         this.name = name;
@@ -32,6 +38,7 @@ public class Staff extends Person {
         this.nextCheck = new Date();
         this.nextCheck.setMonth(this.initialDate.getMonth() + 1);
         GenreateQR.generateQRCode(toString(),name,""+id);
+        this.passwordHash = passwordHash;
         DataStore.store(this);
     }
 
