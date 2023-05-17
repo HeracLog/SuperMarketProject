@@ -19,12 +19,13 @@ public class ProfilePageController {
     @FXML
     Label nameLabel,idLabel,ageLabel,phoneNumberLabel,homeNumberLabel,streetLabel,townLabel;
     @FXML
-    Button homeBtn,cartBtn,profileBtn,signOutBtn;
+    Button homeBtn,cartBtn,profileBtn,signOutBtn,CheckForGolden;
+    static RegularClient regularClient;
     public void initialize() {
         homeBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-home-24.png"))));
         cartBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-cart-30.png"))));
         profileBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-person-30.png"))));
-        RegularClient regularClient = getCurrentClientSession();
+        regularClient = getCurrentClientSession();
         nameLabel.setText(regularClient.getName());
         idLabel.setText(regularClient.getId());
         ageLabel.setText(String.valueOf(regularClient.getAge()));
@@ -58,6 +59,17 @@ public class ProfilePageController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         root = fxmlLoader.load();
         stage.setScene(new Scene(root));
+    }
+    public void canBeGolden() throws IOException {
+        if(!regularClient.isGoldenClients())
+        {
+            Stage s = new Stage();
+            FXMLLoader load = new FXMLLoader(getClass().getResource("GoldenPrompt.fxml"));
+            Scene sc = new Scene(load.load());
+            s.setScene(sc);
+            s.setTitle("Golden Prompt");
+            s.show();
+        }
     }
 
     public RegularClient getCurrentClientSession()

@@ -1,5 +1,7 @@
 package com.supermarket.project.supermarketproject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -181,15 +183,19 @@ public class RegularClient extends Person{
         }
 
     }
-    public void isGoldenClients() {
+    public boolean isGoldenClients() {
         Date currentDate = new Date();
         if (currentDate.getYear() - getInitialDate().getYear() >= 5){
-            GoldenClients c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],null,null,passwordHash);
-            isGolden = true;
-            ApplicationMain.goldenClients.add(c);
-            ApplicationMain.serial(ApplicationMain.goldenClients,"GoldenClients");
+            return true;
         }
-
+        return false;
+    }
+    public void setGolden(String d, Product p) throws ParseException {
+        SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
+        GoldenClients c = new GoldenClients(this.id,this.name, this.age,this.phoneNum, this.address[0], this.address[1],this.address[2],sf.parse(d),p,passwordHash);
+        isGolden = true;
+        ApplicationMain.goldenClients.add(c);
+        ApplicationMain.serial(ApplicationMain.goldenClients,"GoldenClients");
     }
 
 }

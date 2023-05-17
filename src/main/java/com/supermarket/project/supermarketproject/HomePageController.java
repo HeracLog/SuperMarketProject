@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HomePageController {
     private Parent root;
@@ -23,11 +24,13 @@ public class HomePageController {
     private Label price1,price2,price3,price4,price5,price6;
     @FXML
     private Button homeBtn,cartBtn,profileBtn;
+    static ArrayList<Product> cart;
 
     public void initialize() {
         homeBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-home-24.png"))));
         cartBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-cart-30.png"))));
         profileBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-person-30.png"))));
+        cart = new ArrayList<>();
     }
     @FXML
     public void incrementCounter1(ActionEvent event) {
@@ -128,6 +131,7 @@ public class HomePageController {
         }
     }
     public void toCartPage(ActionEvent event) throws IOException {
+        setUpCart();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart-page.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) cartBtn.getScene().getWindow();
@@ -139,6 +143,15 @@ public class HomePageController {
         root = fxmlLoader.load();
 //        stage.getIcons().add(new Image(getClass().getResourceAsStream("icons8-male-user-48.png")));
         stage.setScene(new Scene(root));
+    }
+
+    void setUpCart()
+    {
+        if (Integer.parseInt(counter1.getText()) >= 1)
+        {
+            ApplicationMain.products.get(4).setQuantity(Integer.parseInt(counter1.getText()));
+            cart.add(ApplicationMain.products.get(4));
+        }
     }
 
 }

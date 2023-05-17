@@ -1,0 +1,6 @@
+Thu May 18 01:05:10 AST 2023
+Name     Buy price  Quantity  Total price  
+El Maleka spagetti 400gm     9.0       2      18.0  
+
+staff:Ibrahim Farid  1204333
+totalprice 18.0

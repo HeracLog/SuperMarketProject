@@ -76,6 +76,7 @@
                </image>
             </ImageView>
             <Button fx:id="signOutBtn" layoutX="32.0" layoutY="24.0" mnemonicParsing="false" onAction="#signOut" text="sign out" />
+            <Button fx:id="CheckForGolden" layoutX="696.0" layoutY="24.0" mnemonicParsing="false" onAction="#canBeGolden" text="Golden?" />
          </children>
       </AnchorPane>
    </children>
