@@ -98,9 +98,9 @@ public class HomePageController {
         stage.setScene(new Scene(root));
     }
     public void toProfilePage(ActionEvent event) throws IOException {
+        stage = (Stage) cartBtn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profile-page.fxml"));
         root = fxmlLoader.load();
-        stage = (Stage) cartBtn.getScene().getWindow();
 //        stage.getIcons().add(new Image(getClass().getResourceAsStream("icons8-male-user-48.png")));
         stage.setScene(new Scene(root));
     }
