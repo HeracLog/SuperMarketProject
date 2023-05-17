@@ -2,12 +2,20 @@ package com.supermarket.project.supermarketproject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HomePageController {
+    private Parent root;
+    private Stage stage;
 
     @FXML
     private Label counter1,counter2,counter3,counter4,counter5,counter6;
@@ -82,6 +90,18 @@ public class HomePageController {
     public void decrementCounter6(ActionEvent event) {
         int currentValue = Integer.parseInt(counter6.getText());
         counter6.setText(String.valueOf(currentValue - 1));
+    }
+    public void toCartPage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart-page.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) cartBtn.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+    public void toProfilePage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profile-page.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) cartBtn.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
 
 }

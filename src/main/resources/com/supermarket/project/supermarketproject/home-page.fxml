@@ -23,15 +23,15 @@
                         <Separator layoutX="532.0" layoutY="5.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="4.0" />
                         <Separator layoutX="260.0" layoutY="5.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="4.0" />
                         <Button fx:id="homeBtn" layoutX="59.0" layoutY="11.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="135.0" />
-                        <Button fx:id="cartBtn" layoutX="332.0" layoutY="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="135.0" />
-                        <Button fx:id="profileBtn" layoutX="593.0" layoutY="9.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="133.0" />
+                        <Button fx:id="cartBtn" layoutX="332.0" layoutY="10.0" mnemonicParsing="false" onAction="#toCartPage" prefHeight="37.0" prefWidth="135.0" />
+                        <Button fx:id="profileBtn" layoutX="593.0" layoutY="9.0" mnemonicParsing="false" onAction="#toProfilePage" prefHeight="33.0" prefWidth="133.0" />
                      </children>
                   </AnchorPane>
                </children>
             </StackPane>
          </bottom>
          <right>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="392.0" prefWidth="800.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="392.0" prefWidth="800.0" BorderPane.alignment="CENTER">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="492.0" prefWidth="799.0">
                      <children>
@@ -84,7 +84,7 @@
                               </AnchorPane>
                            </children>
                         </StackPane>
-                        <StackPane layoutX="281.0" layoutY="14.0" prefHeight="218.0" prefWidth="198.0">
+                        <StackPane layoutX="300.0" layoutY="14.0" prefHeight="218.0" prefWidth="198.0">
                            <children>
                               <StackPane prefHeight="218.0" prefWidth="198.0">
                                  <children>
@@ -120,7 +120,7 @@
                               </StackPane>
                            </children>
                         </StackPane>
-                        <StackPane layoutX="532.0" layoutY="22.0" prefHeight="218.0" prefWidth="198.0">
+                        <StackPane layoutX="556.0" layoutY="27.0" prefHeight="218.0" prefWidth="198.0">
                            <children>
                               <AnchorPane fx:id="anchorpasta11" prefHeight="218.0" prefWidth="187.0" stylesheets="@style.css">
                                  <children>
@@ -162,7 +162,7 @@
                               </AnchorPane>
                            </children>
                         </StackPane>
-                        <StackPane layoutX="281.0" layoutY="270.0" prefHeight="218.0" prefWidth="198.0">
+                        <StackPane layoutX="300.0" layoutY="270.0" prefHeight="218.0" prefWidth="198.0">
                            <children>
                               <AnchorPane fx:id="anchorpasta212" prefHeight="218.0" prefWidth="187.0" stylesheets="@style.css">
                                  <children>
@@ -183,7 +183,7 @@
                               </AnchorPane>
                            </children>
                         </StackPane>
-                        <StackPane layoutX="532.0" layoutY="270.0" prefHeight="218.0" prefWidth="198.0">
+                        <StackPane layoutX="556.0" layoutY="270.0" prefHeight="218.0" prefWidth="198.0">
                            <children>
                               <AnchorPane fx:id="anchorpasta213" prefHeight="218.0" prefWidth="187.0" stylesheets="@style.css">
                                  <children>
