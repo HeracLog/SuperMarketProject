@@ -15,7 +15,7 @@ import java.io.IOException;
 public class StaffHomeController {
 
     @FXML
-    Button StaffHome,StaffProfile,AddProduct;
+    Button StaffHome,StaffProfile,AddProduct,LogoutButton;
 
     public void initialize()
     {
@@ -39,6 +39,16 @@ public class StaffHomeController {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("OIP.jpeg")));
         stage.setResizable(false);
         stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    protected void logout() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginController.class.getResource("login.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) StaffHome.getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("OIP.jpeg")));
+        stage.setResizable(false);
+        stage.setScene(new Scene(root,800,450));
         stage.show();
     }
 }
