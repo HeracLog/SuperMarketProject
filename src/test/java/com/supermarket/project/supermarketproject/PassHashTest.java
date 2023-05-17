@@ -22,7 +22,7 @@ class PassHashTest {
     @Test
     void TestReturnsStringNotEqualDifferentCase()
     {
-        String hash1 = PassHash.hash("NO WAY");
+        String hash1 = PassHash.hash("No way");
         String hash2 = PassHash.hash("no way");
         assertNotEquals(hash1, hash2);
     }

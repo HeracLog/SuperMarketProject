@@ -9,9 +9,7 @@ public class PassHash {
     {
         pass = pass.replaceAll(" ","hashMore");
 
-        char[] arr = pass.toCharArray();
-        Arrays.sort(arr);
-
-        return new String(arr);
+        int hashCode = pass.hashCode();
+        return new String(String.valueOf(hashCode));
     }
 }
