@@ -24,11 +24,11 @@ public class ProfilePageController {
         homeBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-home-24.png"))));
         cartBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-cart-30.png"))));
         profileBtn.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("icons8-person-30.png"))));
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-up.fxml"));
-        RegularClient regularClient = fxmlLoader.getController();
-        nameLabel.setText(regularClient.getName());
-        idLabel.setText(regularClient.getId());
-        ageLabel.setText(String.valueOf(regularClient.getAge()));
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-up.fxml"));
+//        RegularClient regularClient = fxmlLoader.getController();
+//        nameLabel.setText(regularClient.getName());
+//        idLabel.setText(regularClient.getId());
+//        ageLabel.setText(String.valueOf(regularClient.getAge()));
     }
 //    public void setData(ActionEvent event) {
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sign-up.fxml"));
